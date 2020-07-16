@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Play extends Application {
@@ -11,8 +12,10 @@ public class Play extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Scene scene = new Scene(root, 907, 600);
+        primaryStage.setTitle("Quoridor Game");
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

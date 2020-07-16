@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="907.0" style="-fx-background-color: #f2e2a6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
+   <children>
+      <Label layoutX="440.0" layoutY="14.0" prefHeight="38.0" prefWidth="415.0" text="Welcome to Quoridor" textAlignment="CENTER" textFill="#402e07" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="246.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Bookman Old Style" size="40.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
