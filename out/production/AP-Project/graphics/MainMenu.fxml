@@ -13,7 +13,7 @@
    </Label>
    <Button layoutX="394.0" layoutY="207.0" mnemonicParsing="false" text="New Game" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
       <font>
-         <Font name="Arial Rounded MT Bold" size="17.0" />
+         <Font name="Arial Rounded MT Bold" size="18.0" />
       </font>
    </Button>
    <Button layoutX="394.0" layoutY="294.0" mnemonicParsing="false" text="Load Game" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
@@ -21,9 +21,9 @@
          <Font name="Arial Rounded MT Bold" size="17.0" />
       </font>
    </Button>
-   <Button layoutX="394.0" layoutY="388.0" mnemonicParsing="false" text="Settings" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
+   <Button layoutX="395.0" layoutY="417.0" mnemonicParsing="false" text="Settings" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
       <font>
-         <Font name="Arial Rounded MT Bold" size="17.0" />
+         <Font name="Arial Rounded MT Bold" size="18.0" />
       </font>
    </Button>
 </AnchorPane>
