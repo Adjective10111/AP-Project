@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class Play extends Application {
     private Stage primaryStage;
     private Scene scene;
@@ -20,14 +22,19 @@ public class Play extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
-        Parent menu = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
-        this.scene = new Scene(menu, 907, 600);
-        this.primaryStage.setTitle("Quoridor Game");
-        this.primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
-        this.primaryStage.setScene(this.scene);
-        this.primaryStage.setWidth(907);
-        this.primaryStage.setHeight(600);
-        this.primaryStage.show();
+        start();
+    }
+
+    public void start() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+        Parent menu = loader.load();
+        scene = new Scene(menu, 907, 600);
+        primaryStage.setTitle("Quoridor Game");
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
+        primaryStage.setScene(this.scene);
+        primaryStage.show();
+        MainMenuController menuController = loader.getController();
+        menuController.setPlay(this);
     }
 
     protected Scene getScene() { return this.scene; }
