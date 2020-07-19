@@ -5,23 +5,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="907.0" style="-fx-background-color: #f2e2a6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
+<AnchorPane prefHeight="600.0" prefWidth="907.0" style="-fx-background-color: #f2e2a6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.MainMenuController">
    <Label layoutX="440.0" layoutY="14.0" prefHeight="38.0" prefWidth="415.0" text="Welcome to Quoridor" textAlignment="CENTER" textFill="#402e07" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="246.0" AnchorPane.topAnchor="14.0">
       <font>
          <Font name="Bookman Old Style" size="40.0" />
       </font>
    </Label>
-   <Button fx:id="NewGame" layoutX="394.0" layoutY="207.0" mnemonicParsing="false" text="New Game" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
+   <Button fx:id="NewGame" layoutX="394.0" layoutY="207.0" mnemonicParsing="false" onMouseClicked="#gotoGame" text="New Game" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
       <font>
          <Font name="Arial Rounded MT Bold" size="17.0" />
       </font>
    </Button>
-   <Button fx:id="LoadGame" layoutX="394.0" layoutY="294.0" mnemonicParsing="false" text="Load Game" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
+   <Button fx:id="LoadGame" layoutX="394.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#gotoLoad" text="Load Game" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
       <font>
          <Font name="Arial Rounded MT Bold" size="17.0" />
       </font>
    </Button>
-   <Button fx:id="Settings" layoutX="394.0" layoutY="388.0" mnemonicParsing="false" text="Settings" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
+   <Button fx:id="Settings" layoutX="394.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#gotoSettings" text="Settings" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="393.0">
       <font>
          <Font name="Arial Rounded MT Bold" size="17.0" />
       </font>
