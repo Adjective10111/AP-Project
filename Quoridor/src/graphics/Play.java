@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,11 +27,8 @@ public class Play extends Application {
     }
 
     public void start() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        Parent menu = loader.load();
-        Controller controller = loader.getController();
-        controller.setPlay(this);
-        scene = new Scene(menu, 907, 600);
+        scene = new Scene(new AnchorPane(), 907, 600);
+        gotoFXML("mainMenu.fxml");
         primaryStage.setTitle("Quoridor Game");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
         primaryStage.setScene(this.scene);
