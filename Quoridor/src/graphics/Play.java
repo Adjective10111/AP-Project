@@ -28,13 +28,21 @@ public class Play extends Application {
     public void start() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
         Parent menu = loader.load();
+        Controller controller = loader.getController();
+        controller.setPlay(this);
         scene = new Scene(menu, 907, 600);
         primaryStage.setTitle("Quoridor Game");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
         primaryStage.setScene(this.scene);
         primaryStage.show();
-        MainMenuController menuController = loader.getController();
-        menuController.setPlay(this);
+    }
+
+    protected void gotoFXML(String URL) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(URL));
+        Parent parent = loader.load();
+        this.getScene().setRoot(parent);
+        Controller controller = loader.getController();
+        controller.setPlay(this);
     }
 
     protected Scene getScene() { return this.scene; }
