@@ -24,24 +24,42 @@ public class Wall {
         this.bead2 = bead2;
     }
 
-    public void placeWall(int turn, int x, int y) {
-        if (allowedWall(x, y)) {
-            //Horizantal Wall
-            if (x % 2 == 0 && y % 2 == 1 && x < 15 && board[y][x + 1] == MIDDLE_WALL &&  board[y][x + 2] == EMPTY_WALL) {
-                board[y][x] = WALL;
-                board[y][x + 1] = WALL;
-                board[y][x + 2] = WALL;
-            }
-            //Vertical Wall
-            else if (x % 2 == 1 && y % 2 == 0 && y < 15 && board[y + 1][x] == MIDDLE_WALL && board[y + 2][x] == EMPTY_WALL) {
-                board[y][x] = WALL;
-                board[y + 1][x] = WALL;
-                board[y + 2][x] = WALL;
-            }
-            else{
-                //unja nmitoone divar bezare chon sare rahesh divare dgE hst nmidoonm tooye fx chejoori mishe o inja bayd che kari begm anjam bede
-            }
+    public boolean placeWall(boolean turn1, int x, int y) {
+        if (!allowedWall(x, y))
+            return false;
+
+        //horizontal Wall
+        if (x % 2 == 0 && y % 2 == 1 && board[y][x + 1] == MIDDLE_WALL &&  board[y][x + 2] == EMPTY_WALL) {
+
+            board[y][x] = WALL;
+            board[y][x + 1] = WALL;
+            board[y][x + 2] = WALL;
+
+            //decrease number of player walls
+            if (turn1)
+                bead1_walls--;
+            else
+                bead2_walls--;
+
+            return true;
         }
+
+        //Vertical Wall
+        else if (x % 2 == 1 && y % 2 == 0 && board[y + 1][x] == MIDDLE_WALL && board[y + 2][x] == EMPTY_WALL) {
+
+            board[y][x] = WALL;
+            board[y + 1][x] = WALL;
+            board[y + 2][x] = WALL;
+
+            //decrease number of player walls
+            if (turn1)
+                bead1_walls--;
+            else
+                bead2_walls--;
+            return true;
+        }
+
+        return false;
     }
 
     private boolean allowedWall(int x, int y) {
