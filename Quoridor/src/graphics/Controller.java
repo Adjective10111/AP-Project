@@ -20,6 +20,8 @@ public class Controller {
 	@FXML
 	protected void gotoGame() throws IOException {
 		play.gotoFXML("game.fxml");
+		play.getPrimaryStage().setWidth(895);
+		play.getPrimaryStage().setHeight(825);
 	}
 	@FXML
 	protected void gotoLoad() throws IOException {
