@@ -8,388 +8,392 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="825.0" maxWidth="900.0" minHeight="825.0" minWidth="877.0" prefHeight="825.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
-   <center>
-<AnchorPane maxWidth="890.0" minWidth="877.0" prefHeight="797.0" prefWidth="880.0">
-         <children>
-         <Label layoutY="3.0" maxWidth="697.0" minWidth="697.0" prefWidth="697.0" text="Info" AnchorPane.bottomAnchor="697.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         <ButtonBar buttonMinWidth="41.0" layoutY="103.0" maxWidth="697.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-            <buttons>
-               <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-           </buttons>
-         </ButtonBar>
-         <ButtonBar buttonMinWidth="41.0" layoutY="144.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-            <buttons>
-               <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            </buttons>
-         </ButtonBar>
-         <ButtonBar buttonMinWidth="41.0" layoutY="267.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-            <buttons>
-               <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            </buttons>
-         </ButtonBar>
-         <ButtonBar buttonMinWidth="41.0" layoutY="185.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-            <buttons>
-               <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-               <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="226.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="308.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="349.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="390.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="431.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="472.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="513.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="554.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="595.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="636.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="677.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutY="718.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-      <ButtonBar buttonMinWidth="41.0" layoutX="100.0" layoutY="753.0" maxWidth="697.0" prefHeight="41.0" prefWidth="697.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
-         <buttons>
-            <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-            <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
-         </buttons>
-      </ButtonBar>
-   </children>
-</AnchorPane>
-   </center>
+<BorderPane maxHeight="830.0" maxWidth="650.0" minHeight="825.0" minWidth="650.0" prefHeight="830.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
    <top>
       <MenuBar prefHeight="20.0" BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Game">
-            <items>
-              <MenuItem mnemonicParsing="false" text="New Game" />
+         <menus>
+            <Menu mnemonicParsing="false" text="Game">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New Game" />
+                  <MenuItem mnemonicParsing="false" text="Load Game" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Exit">
+               <items>
                   <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" onAction="#gotoMenu" text="Exit" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Settings">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Color" />
-            </items>
-          </Menu>
-        </menus>
+                  <MenuItem mnemonicParsing="false" onAction="#gotoMenu" text="Quit" />
+               </items></Menu>
+         </menus>
       </MenuBar>
    </top>
+   <center>
+      <AnchorPane maxWidth="650.0" minWidth="630.0" prefHeight="810.0" prefWidth="630.0">
+         <children>
+            <Label layoutY="3.0" maxWidth="630.0" minWidth="630.0" prefWidth="630.0" text="info" textAlignment="CENTER" AnchorPane.bottomAnchor="697.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </Label>
+            <ButtonBar buttonMinWidth="10.0" layoutY="103.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+              </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="144.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="41.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="267.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="226.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="41.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="185.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="308.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="41.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="349.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="390.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="41.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="431.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="472.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="41.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="513.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="554.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="41.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="595.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="636.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="41.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="677.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutY="718.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="41.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="10.0" maxWidth="41.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar buttonMinWidth="10.0" layoutX="100.0" layoutY="753.0" maxWidth="697.0" prefHeight="41.0" prefWidth="630.0" AnchorPane.leftAnchor="0.0">
+               <buttons>
+                  <Button maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="10.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="10.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+                  <Button layoutX="677.0" layoutY="10.0" maxHeight="41.0" maxWidth="41.0" minHeight="41.0" minWidth="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" />
+               </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>

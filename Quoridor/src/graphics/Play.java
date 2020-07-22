@@ -27,7 +27,7 @@ public class Play extends Application {
     }
 
     public void start() throws IOException {
-        scene = new Scene(new AnchorPane(), 907, 600);
+        scene = new Scene(new AnchorPane(), 650, 830);
         gotoFXML("mainMenu.fxml");
         primaryStage.setTitle("Quoridor Game");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
