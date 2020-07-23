@@ -19,6 +19,9 @@ public class Board{
 		table = new TableSync(board);
 	}
 
+	public TableSync getTable() { return table; }
+	public int[][] getBoard() { return board; }
+
 	public void turn() {
 		if (this.turn == player1)
 			turn = player2;
@@ -26,23 +29,23 @@ public class Board{
 			turn = player1;
 	}
 
-	public void move(int x,int y){
-		if (turn.bead.getX() + 2 == x){
+	public void move(int x, int y) throws InputMismatchException {
+		if (turn.bead.getX() + 2 == x && turn.bead.getY() == y){
 			board[turn.bead.getY()][turn.bead.getX()] = 0;
 			turn.bead.setX(x);
 			board[turn.bead.getY()][turn.bead.getX()] = 8;
 		}
-        else if (turn.bead.getX() - 2 == x){
+        else if (turn.bead.getX() - 2 == x && turn.bead.getY() == y) {
 			board[turn.bead.getY()][turn.bead.getX()] = 0;
 			turn.bead.setX(x);
 			board[turn.bead.getY()][turn.bead.getX()] = 8;
 		}
-        else if (turn.bead.getY() + 2 == y){
+        else if (turn.bead.getY() + 2 == y && turn.bead.getX() == x) {
 			board[turn.bead.getY()][turn.bead.getX()] = 0;
 			turn.bead.setY(y);
 			board[turn.bead.getY()][turn.bead.getX()] = 8;
 		}
-        else if (turn.bead.getY() - 2 == y){
+        else if (turn.bead.getY() - 2 == y && turn.bead.getX() == x) {
 			board[turn.bead.getY()][turn.bead.getX()] = 0;
 			turn.bead.setY(y);
 			board[turn.bead.getY()][turn.bead.getX()] = 8;

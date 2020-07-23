@@ -3,6 +3,7 @@ package graphics;
 import game.Board;
 import game.TableSync;
 import javafx.application.Application;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,7 @@ public class Play extends Application {
     private Scene scene;
     private Board board = new Board();
     private ObservableList<TableSync> table = FXCollections.observableArrayList();
+    Observable observable = FXCollections.observableArrayList();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -27,7 +29,7 @@ public class Play extends Application {
     }
 
     public void start() throws IOException {
-        scene = new Scene(new AnchorPane(), 650, 830);
+        scene = new Scene(new AnchorPane(), 520, 600);
         gotoFXML("mainMenu.fxml");
         primaryStage.setTitle("Quoridor Game");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
@@ -41,6 +43,7 @@ public class Play extends Application {
         this.getScene().setRoot(parent);
         Controller controller = loader.getController();
         controller.setPlay(this);
+        controller.setBoard(this.board);
     }
 
     protected Scene getScene() { return this.scene; }
