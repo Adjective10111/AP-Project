@@ -32,6 +32,7 @@ public class Board{
 		if (canMove(x, y)) {
 			board[turn.bead.getY()][turn.bead.getX()] = 0;
 			turn.bead.setX(x);
+			turn.bead.setY(y);
 			board[turn.bead.getY()][turn.bead.getX()] = (turn.id == 'D')? 1 : 2;
 		}
         else
