@@ -5,8 +5,8 @@ import java.util.InputMismatchException;
 
 public class Board{
 	private int[][] board = new int[17][17];
-	Player player1 = new Player(1);
-	Player player2 = new Player(2);
+	Player player1 = new Player('D');
+	Player player2 = new Player('U');
 	Player turn = player1;
 
 	public Board(){
@@ -30,7 +30,7 @@ public class Board{
 		if (canMove(x, y)) {
 			board[turn.bead.getY()][turn.bead.getX()] = 0;
 			turn.bead.setX(x);
-			board[turn.bead.getY()][turn.bead.getX()] = turn.number;
+			board[turn.bead.getY()][turn.bead.getX()] = (turn.id == 'D')? 1 : 2;
 		}
         else
 			throw new InputMismatchException("invalid place");

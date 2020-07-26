@@ -123,7 +123,7 @@ public class Controller {
 			this.board.move(x, y);
 			// move the on-screen bead
 			AnchorPane clicked = (AnchorPane)event.getSource();
-			AnchorPane bead = (board.getTurn().getNumber() == 1) ? bead1 : bead2;
+			AnchorPane bead = (board.getTurn().getId() == 'D') ? bead1 : bead2;
 
 			bead.setLayoutX(clicked.getLayoutX());
 			bead.setLayoutY(clicked.getLayoutY());

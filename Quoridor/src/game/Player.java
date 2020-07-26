@@ -3,15 +3,15 @@ package game;
 public class Player {
 	Bead bead;
 	int walls = 10;
-	int number;
+	char id;
 	String name;
 
-	public int getNumber() { return number; }
+	public char getId() { return id; }
 	public Bead getBead() { return bead; }
 
-	public Player(int number) {
-		this.number = number;
-		if (number == 1)
+	public Player(char id) {
+		this.id = id;
+		if (id == 'D')
 			this.bead = new Bead(8, 0);
 		else
 			this.bead = new Bead(8, 16);
