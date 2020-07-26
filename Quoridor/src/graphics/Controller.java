@@ -29,7 +29,7 @@ public class Controller {
 	@FXML protected AnchorPane table;
 	@FXML protected AnchorPane bead1;
 	@FXML protected AnchorPane bead2;
-	// traverses through major nodes ... some how changing scene
+	// traverses through scenes (actually changing major nodes)
 	@FXML
 	protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
 	@FXML
