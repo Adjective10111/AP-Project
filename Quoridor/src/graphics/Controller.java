@@ -25,10 +25,10 @@ public class Controller {
 	}
 	public void setBoard(Board board) { this.board = board; }
 	// shall be changed objects
-	@FXML
-	protected Label info = new Label();
-	@FXML
-	protected AnchorPane table;
+	@FXML protected Label info = new Label();
+	@FXML protected AnchorPane table;
+	@FXML protected AnchorPane bead1;
+	@FXML protected AnchorPane bead2;
 	// traverses through major nodes ... some how changing scene
 	@FXML
 	protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
@@ -40,9 +40,10 @@ public class Controller {
 	protected void Exit() { play.getPrimaryStage().close(); }
 	// create the board
 	@FXML
-	protected void initializeGame() throws IOException {
+	protected void initializeGame() {
+		// creating the board
 		table = (AnchorPane)(play.getScene().lookup("#table"));
-		final double NARROW = table.getPrefWidth() / 44, THICK = NARROW * 4;
+		final double NARROW = 10, THICK = 40;
 
 		int y = 0;
 		for (int i = 0; i < 17; ++i) {
@@ -56,8 +57,9 @@ public class Controller {
 				cell.setLayoutY(y);
 				if (i % 2 == 0)
 					cell.setPrefHeight(THICK);
-				else
+				else {
 					cell.setPrefHeight(NARROW);
+				}
 				if (j % 2 == 0) {
 					if (i % 2 == 0)
 						cell.setStyle("-fx-background-color: maroon");
@@ -74,7 +76,15 @@ public class Controller {
 					cell.setPrefWidth(NARROW);
 					x += NARROW;
 				}
-				cell.setOnMouseClicked(mouseEvent -> { BeadMover(mouseEvent); });
+				// add functionality
+				cell.setOnMouseClicked(this::BeadMover);
+				if (cell.getStyle().equals("-fx-background-color: chocolate"))
+					cell.setOnMouseEntered(this::canPlace);
+				else if (cell.getStyle().equals("-fx-background-color: maroon"))
+					cell.setOnMouseEntered(this::canMove);
+				if (!cell.getStyle().equals("-fx-background-color: firebrick"))
+					cell.setOnMouseExited(this::baseColor);
+
 				table.getChildren().add(cell);
 			}
 			if (i % 2 == 0)
@@ -82,28 +92,112 @@ public class Controller {
 			else
 				y += NARROW;
 		}
+		// initialize the beads
+		{
+			bead1 = new AnchorPane();
+			bead1.setPrefSize(THICK, THICK);
+			bead1.setLayoutX(play.getScene().lookup("#cell0008").getLayoutX());
+			bead1.setLayoutY(play.getScene().lookup("#cell0008").getLayoutY());
+			bead2 = new AnchorPane();
+			bead2.setPrefSize(THICK, THICK);
+			bead2.setLayoutX(play.getScene().lookup("#cell1608").getLayoutX());
+			bead2.setLayoutY(play.getScene().lookup("#cell1608").getLayoutY());
+			// adding style
+			bead1.setStyle("-fx-background-size: 40 40;" +
+					               "-fx-background-radius: 40;" +
+					               "-fx-border-radius: 40;" +
+					               "-fx-background-color: royalblue");
+			bead2.setStyle("-fx-background-size: 40 40;" +
+					               "-fx-background-radius: 40;" +
+					               "-fx-border-radius: 40;" +
+					               "-fx-background-color: limegreen");
+			// add to the table
+			table.getChildren().addAll(bead1, bead2);
+		}
 	}
 	@FXML
 	protected void BeadMover(MouseEvent event) {
-		int index = Integer.parseInt(((Button)event.getSource()).getId().substring(4));
+		int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
 		int x = index % 100, y = index / 100;
 		try {
 			this.board.move(x, y);
+			changeColor(event);
 		} catch (InputMismatchException exception) {
 			String info = this.info.getText();
 			this.info.setFont(new Font(this.info.getFont().getStyle(), 30));
 			this.info.setText(exception.getMessage().toUpperCase());
-			// todo: after 5 seconds
+
+			try { Thread.sleep(2500); } catch (InterruptedException e) { e.printStackTrace(); }
 			this.info.setText(info);
 			this.info.setFont(new Font(this.info.getFont().getStyle(), 16));
 		}
 	}
-
-	public void changeColor(int[][] map) {
-		for (int i = 0; i < map.length; ++i) {
-			for (int j = 0; j < map[i].length; ++j) {
-
-			}
+	@FXML
+	protected void canMove(MouseEvent event) {
+		int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
+		int x = index % 100, y = index / 100;
+		if (board.canMove(x, y))
+			((AnchorPane) event.getSource()).setStyle("-fx-background-color: deepskyblue");
+		else
+			((AnchorPane) event.getSource()).setStyle("-fx-background-color: red");
+	}
+	@FXML // todo: this method
+	protected void canPlace(MouseEvent event) {
+		int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
+		int x = index % 100, y = index / 100;
+		String color = "-fx-background-color: ";
+		String id1 = "#cell";
+		String id2 = "#cell";
+		if (y % 2 == 1) {
+			String y_value = ((y < 10) ? "0" + y : y).toString();
+			id1 += y_value + ((x + 1 < 10) ? "0" + (x + 1) : x + 1);
+			id2 += y_value + ((x + 2 < 10) ? "0" + (x + 2) : x + 2);
 		}
+		else {
+			String x_value = ((x < 10) ? "0" + x : x).toString();
+			id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
+			id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
+		}
+		// todo: find the function for walls
+//		if ()
+//			color += "cornflowerblue";
+//		else
+			color += "orangered";
+
+		((AnchorPane) event.getSource()).setStyle(color);
+		play.getScene().lookup(id1).setStyle(color);
+		play.getScene().lookup(id2).setStyle(color);
+	}
+	@FXML
+	protected void baseColor(MouseEvent event) {
+		int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
+		int x = index % 100, y = index / 100;
+		if (x % 2 == 0 && y % 2 == 0)
+			((AnchorPane) event.getSource()).setStyle("-fx-background-color: maroon");
+		else {
+			((AnchorPane) event.getSource()).setStyle("-fx-background-color: chocolate");
+			String id1 = "#cell";
+			String id2 = "#cell";
+			if (y % 2 == 1) {
+				String y_value = ((y < 10) ? "0" + y : y).toString();
+				id1 += y_value + ((x + 1 < 10) ? "0" + (x + 1) : x + 1);
+				id2 += y_value + ((x + 2 < 10) ? "0" + (x + 2) : x + 2);
+			}
+			else {
+				String x_value = ((x < 10) ? "0" + x : x).toString();
+				id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
+				id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
+			}
+			play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
+			play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
+		}
+	}
+
+	public void changeColor(MouseEvent event) {
+		AnchorPane clicked = (AnchorPane)event.getSource();
+		AnchorPane bead = (board.getTurn().getNumber() == 1) ? bead1 : bead2;
+
+		bead.setLayoutX(clicked.getLayoutX());
+		bead.setLayoutY(clicked.getLayoutY());
 	}
 }

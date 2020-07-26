@@ -5,7 +5,6 @@ import java.util.InputMismatchException;
 
 public class Board{
 	private int[][] board = new int[17][17];
-	private TableSync table;
 	Player player1 = new Player(8, 0);
 	Player player2 = new Player(8, 16);
 	Player turn = player1;
@@ -15,12 +14,10 @@ public class Board{
 			Arrays.fill(ints,0);
 		board[0][8] = 8;
 		board[16][8] = 8;
-
-		table = new TableSync(board);
 	}
 
-	public TableSync getTable() { return table; }
 	public int[][] getBoard() { return board; }
+	public Player getTurn() { return turn; }
 
 	public void turn() {
 		if (this.turn == player1)
@@ -30,30 +27,21 @@ public class Board{
 	}
 
 	public void move(int x, int y) throws InputMismatchException {
-		if (turn.bead.getX() + 2 == x && turn.bead.getY() == y){
+		if (canMove(x, y)) {
 			board[turn.bead.getY()][turn.bead.getX()] = 0;
 			turn.bead.setX(x);
-			board[turn.bead.getY()][turn.bead.getX()] = 8;
-		}
-        else if (turn.bead.getX() - 2 == x && turn.bead.getY() == y) {
-			board[turn.bead.getY()][turn.bead.getX()] = 0;
-			turn.bead.setX(x);
-			board[turn.bead.getY()][turn.bead.getX()] = 8;
-		}
-        else if (turn.bead.getY() + 2 == y && turn.bead.getX() == x) {
-			board[turn.bead.getY()][turn.bead.getX()] = 0;
-			turn.bead.setY(y);
-			board[turn.bead.getY()][turn.bead.getX()] = 8;
-		}
-        else if (turn.bead.getY() - 2 == y && turn.bead.getX() == x) {
-			board[turn.bead.getY()][turn.bead.getX()] = 0;
-			turn.bead.setY(y);
-			board[turn.bead.getY()][turn.bead.getX()] = 8;
+			board[turn.bead.getY()][turn.bead.getX()] = turn.number;
 		}
         else
 			throw new InputMismatchException("invalid place");
 
-        table.set(board);
 		turn();
+	}
+
+	public boolean canMove(int x, int y) {
+		return (turn.bead.getX() + 2 == x && turn.bead.getY() == y)
+				|| (turn.bead.getX() - 2 == x && turn.bead.getY() == y)
+				|| (turn.bead.getY() + 2 == y && turn.bead.getX() == x)
+				|| (turn.bead.getY() - 2 == y && turn.bead.getX() == x);
 	}
 }

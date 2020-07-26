@@ -1,7 +1,6 @@
 package graphics;
 
 import game.Board;
-import game.TableSync;
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -19,8 +18,6 @@ public class Play extends Application {
     private Stage primaryStage;
     private Scene scene;
     private Board board = new Board();
-    private ObservableList<TableSync> table = FXCollections.observableArrayList();
-    Observable observable = FXCollections.observableArrayList();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
