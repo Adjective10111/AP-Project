@@ -18,6 +18,8 @@ public class Board{
 
 	public int[][] getBoard() { return board; }
 	public Player getTurn() { return turn; }
+	public Player getPlayer1() { return player1; }
+	public Player getPlayer2() { return player2; }
 
 	public void turn() {
 		if (this.turn == player1)

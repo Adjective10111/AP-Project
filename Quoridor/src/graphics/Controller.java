@@ -163,8 +163,8 @@ public class Controller {
 			id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
 			id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
 		}
-		// todo: find the function for walls
-//		if ()
+		// todo: merge the function
+//		if (allowedWall(board.getPlayer1(), board.getPlayer2(), x, y))
 //			color += "cornflowerblue";
 //		else
 			color += "orangered";
