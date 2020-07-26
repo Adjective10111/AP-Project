@@ -5,8 +5,8 @@ import java.util.InputMismatchException;
 
 public class Board{
 	private int[][] board = new int[17][17];
-	Player player1 = new Player(8, 0);
-	Player player2 = new Player(8, 16);
+	Player player1 = new Player(1);
+	Player player2 = new Player(2);
 	Player turn = player1;
 
 	public Board(){

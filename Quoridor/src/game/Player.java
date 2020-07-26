@@ -9,7 +9,11 @@ public class Player {
 	public int getNumber() { return number; }
 	public Bead getBead() { return bead; }
 
-	public Player(int x, int y) {
-		this.bead = new Bead(x, y);
+	public Player(int number) {
+		this.number = number;
+		if (number == 1)
+			this.bead = new Bead(8, 0);
+		else
+			this.bead = new Bead(8, 16);
 	}
 }

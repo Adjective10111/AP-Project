@@ -121,7 +121,12 @@ public class Controller {
 		int x = index % 100, y = index / 100;
 		try {
 			this.board.move(x, y);
-			changeColor(event);
+			// move the on-screen bead
+			AnchorPane clicked = (AnchorPane)event.getSource();
+			AnchorPane bead = (board.getTurn().getNumber() == 1) ? bead1 : bead2;
+
+			bead.setLayoutX(clicked.getLayoutX());
+			bead.setLayoutY(clicked.getLayoutY());
 		} catch (InputMismatchException exception) {
 			String info = this.info.getText();
 			this.info.setFont(new Font(this.info.getFont().getStyle(), 30));
@@ -141,7 +146,7 @@ public class Controller {
 		else
 			((AnchorPane) event.getSource()).setStyle("-fx-background-color: red");
 	}
-	@FXML // todo: this method
+	@FXML
 	protected void canPlace(MouseEvent event) {
 		int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
 		int x = index % 100, y = index / 100;
@@ -191,13 +196,5 @@ public class Controller {
 			play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
 			play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
 		}
-	}
-
-	public void changeColor(MouseEvent event) {
-		AnchorPane clicked = (AnchorPane)event.getSource();
-		AnchorPane bead = (board.getTurn().getNumber() == 1) ? bead1 : bead2;
-
-		bead.setLayoutX(clicked.getLayoutX());
-		bead.setLayoutY(clicked.getLayoutY());
 	}
 }
