@@ -12,8 +12,8 @@ public class Board{
 	public Board(){
 		for(int[] ints : board)
 			Arrays.fill(ints,0);
-		board[0][8] = 8;
-		board[16][8] = 8;
+		board[0][8] = 1;
+		board[16][8] = 2;
 	}
 
 	public int[][] getBoard() { return board; }
@@ -41,9 +41,7 @@ public class Board{
 	}
 
 	public boolean canMove(int x, int y) {
-		return (turn.bead.getX() + 2 == x && turn.bead.getY() == y)
-				|| (turn.bead.getX() - 2 == x && turn.bead.getY() == y)
-				|| (turn.bead.getY() + 2 == y && turn.bead.getX() == x)
-				|| (turn.bead.getY() - 2 == y && turn.bead.getX() == x);
+		return (Math.abs(turn.bead.getX() - x) == 2 && turn.bead.getY() == y)
+				|| (Math.abs(turn.bead.getY() - y) == 2 && turn.bead.getX() == x);
 	}
 }

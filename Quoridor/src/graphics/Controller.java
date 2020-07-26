@@ -78,12 +78,14 @@ public class Controller {
 				}
 				// add functionality
 				cell.setOnMouseClicked(this::BeadMover);
-				if (cell.getStyle().equals("-fx-background-color: chocolate"))
+				if (cell.getStyle().equals("-fx-background-color: chocolate") && i != 16 && j != 16) {
 					cell.setOnMouseEntered(this::canPlace);
-				else if (cell.getStyle().equals("-fx-background-color: maroon"))
-					cell.setOnMouseEntered(this::canMove);
-				if (!cell.getStyle().equals("-fx-background-color: firebrick"))
 					cell.setOnMouseExited(this::baseColor);
+				}
+				else if (cell.getStyle().equals("-fx-background-color: maroon")) {
+					cell.setOnMouseEntered(this::canMove);
+					cell.setOnMouseExited(this::baseColor);
+				}
 
 				table.getChildren().add(cell);
 			}
@@ -123,7 +125,7 @@ public class Controller {
 			this.board.move(x, y);
 			// move the on-screen bead
 			AnchorPane clicked = (AnchorPane)event.getSource();
-			AnchorPane bead = (board.getTurn().getId() == 'D') ? bead1 : bead2;
+			AnchorPane bead = (board.getTurn().getId() != 'D') ? bead1 : bead2;
 
 			bead.setLayoutX(clicked.getLayoutX());
 			bead.setLayoutY(clicked.getLayoutY());

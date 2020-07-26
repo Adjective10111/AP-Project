@@ -17,7 +17,6 @@ import java.io.IOException;
 public class Play extends Application {
     private Stage primaryStage;
     private Scene scene;
-    private Board board = new Board();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -40,7 +39,7 @@ public class Play extends Application {
         this.getScene().setRoot(parent);
         Controller controller = loader.getController();
         controller.setPlay(this);
-        controller.setBoard(this.board);
+        controller.setBoard(new Board());
     }
 
     protected Scene getScene() { return this.scene; }
