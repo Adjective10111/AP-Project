@@ -5,59 +5,62 @@ import java.util.InputMismatchException;
 
 public class Board{
     private int[][] board = new int[17][17];
-    Player player1 = new Player(8, 0);
-    Player player2 = new Player(8, 16);
+    Player player1 = new Player('D');
+    Player player2 = new Player('U');
     Player turn = player1;
 
     public Board(){
         for(int[] ints : board)
             Arrays.fill(ints,0);
-
-        board[0][8] = 8;
-        board[16][8] = 8;
-
-        player1.bead.setY(0);
-        player1.bead.setX(8);
-
-
-        player2.bead.setY(16);
-        player2.bead.setX(8);
+        board[0][8] = 1;
+        board[16][8] = 2;
     }
+
+    public int[][] getBoard() { return board; }
+    public Player getTurn() { return turn; }
+    public Player getPlayer1() { return player1; }
+    public Player getPlayer2() { return player2; }
 
     public void turn() {
-        if (this.turn == player1) {
+        if (this.turn == player1)
             turn = player2;
-        }
-        else {
+        else
             turn = player1;
-        }
     }
 
-    public void move(int x,int y){
-
-        if (turn.bead.getX() + 2 == x  &&  turn.bead.getY() == y){
+    public void move(int x, int y) throws InputMismatchException {
+        if (canMove(x, y)) {
             board[turn.bead.getY()][turn.bead.getX()] = 0;
             turn.bead.setX(x);
-            board[turn.bead.getY()][turn.bead.getX()] = 8;
-        }
-        else if (turn.bead.getX() - 2 == x  &&  turn.bead.getY() == y){
-            board[turn.bead.getY()][turn.bead.getX()] = 0;
-            turn.bead.setX(x);
-            board[turn.bead.getY()][turn.bead.getX()] = 8;
-        }
-        else if (turn.bead.getY() + 2 == y  &&  turn.bead.getX() == x){
-            board[turn.bead.getY()][turn.bead.getX()] = 0;
             turn.bead.setY(y);
-            board[turn.bead.getY()][turn.bead.getX()] = 8;
-        }
-        else if (turn.bead.getY() - 2 == y  &&  turn.bead.getX() == x){
-            board[turn.bead.getY()][turn.bead.getX()] = 0;
-            turn.bead.setY(y);
-            board[turn.bead.getY()][turn.bead.getX()] = 8;
+            board[turn.bead.getY()][turn.bead.getX()] = (turn.id == 'D')? 1 : 2;
         }
         else
             throw new InputMismatchException("invalid place");
 
         turn();
     }
+
+    public boolean canMove(int x, int y) {
+        return (Math.abs(turn.bead.getX() - x) == 2 && turn.bead.getY() == y)
+                || (Math.abs(turn.bead.getY() - y) == 2 && turn.bead.getX() == x);
+    }
+    public Player win(){
+        if (turn.id == 'U') {
+            for (int i = 0; i < 17; i += 2) {
+                if (board[turn.bead.getY()][turn.bead.getX()] == board[0][i]) {
+                    return player1;
+                }
+            }
+        }
+        else if (turn.id == 'D') {
+            for (int i = 0; i < 17; i += 2) {
+                if (board[turn.bead.getY()][turn.bead.getX()] == board[16][i]) {
+                    return player2;
+                }
+            }
+        }
+        return null;
+    }
 }
+
