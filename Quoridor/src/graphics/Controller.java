@@ -242,12 +242,12 @@ public class Controller {
         Label winner_info;
         Label loser_info;
         if (winner.getId() == 'U') {
-            winner_info = player2info;
-            loser_info = player1info;
-        }
-        else {
             winner_info = player1info;
             loser_info = player2info;
+        }
+        else {
+            winner_info = player2info;
+            loser_info = player1info;
         }
 
         winner_info.setFont(new Font(winner_info.getFont().getStyle(), 20));
