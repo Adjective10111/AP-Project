@@ -2,9 +2,18 @@ package game;
 
 public class Player {
     Bead bead;
-    Wall[] walls = new Wall[8];
+    int walls = 10;
+    char id;
+    String name;
 
-    public Player(int x, int y) {
-        this.bead = new Bead(x, y);
+    public char getId() { return id; }
+    public Bead getBead() { return bead; }
+
+    public Player(char id) {
+        this.id = id;
+        if (id == 'D')
+            this.bead = new Bead(8, 0);
+        else
+            this.bead = new Bead(8, 16);
     }
 }
