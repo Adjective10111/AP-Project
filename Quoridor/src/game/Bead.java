@@ -4,7 +4,7 @@ public class Bead {
 	private int x;
 	private int y;
 
-	public Bead(int x, int y) {
+	public Bead(int y, int x) {
 		this.setX(x);
 		this.setY(y);
 	}

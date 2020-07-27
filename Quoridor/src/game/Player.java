@@ -10,12 +10,14 @@ public class Player {
 	public String getName() { return name; }
 	public Bead getBead() { return bead; }
 	public int getWalls() { return walls; }
+	public void setBead(int y, int x) { this.bead = new Bead(y, x); }
 
 	public Player(char id) {
 		this.id = id;
 		if (id == 'D')
-			this.bead = new Bead(8, 0);
+			this.bead = new Bead(0, 8);
 		else
-			this.bead = new Bead(8, 16);
+			this.bead = new Bead(16, 8);
 	}
+	public Player(String name, int walls) { this.name = name; this.walls = walls; }
 }

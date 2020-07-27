@@ -2,21 +2,19 @@ package graphics;
 
 import game.Board;
 import game.Player;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
+import load.FileManager;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 public class Controller {
@@ -26,22 +24,18 @@ public class Controller {
 		this.play = play;
 	}
 	public void setBoard(Board board) { this.board = board; }
-	// shall be changed objects
+	// shall be changed game objects
 	@FXML protected AnchorPane game_pane;
 	@FXML protected Label player1info;
 	@FXML protected Label player2info;
 	@FXML protected AnchorPane table;
 	@FXML protected AnchorPane bead1;
 	@FXML protected AnchorPane bead2;
-	// traverses through scenes (actually changing major nodes)
+	// game methods
+	@FXML
+	protected void gotoNewGame() throws IOException { play.gotoFXML("game.fxml"); board = new Board(); initializeGame(); }
 	@FXML
 	protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
-	@FXML
-	protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); }
-	@FXML
-	protected void gotoMenu() throws IOException { play.gotoFXML("mainMenu.fxml"); }
-	@FXML
-	protected void Exit() { play.getPrimaryStage().close(); }
 
 	protected void initializeGame() {
 		// creating the board
@@ -102,13 +96,19 @@ public class Controller {
 		{
 			bead1 = new AnchorPane();
 			bead1.setPrefSize(THICK, THICK);
-			bead1.setLayoutX(play.getScene().lookup("#cell0008").getLayoutX());
-			bead1.setLayoutY(play.getScene().lookup("#cell0008").getLayoutY());
+			int x1 = board.getPlayer1().getBead().getX();
+			int y1 = board.getPlayer1().getBead().getY();
+			String id1 = "#cell" + ((y1 < 10) ? "0" + y1 : y1) + ((x1 < 10) ? "0" + x1 : x1);
+			bead1.setLayoutX(play.getScene().lookup(id1).getLayoutX());
+			bead1.setLayoutY(play.getScene().lookup(id1).getLayoutY());
 
 			bead2 = new AnchorPane();
 			bead2.setPrefSize(THICK, THICK);
-			bead2.setLayoutX(play.getScene().lookup("#cell1608").getLayoutX());
-			bead2.setLayoutY(play.getScene().lookup("#cell1608").getLayoutY());
+			int x2 = board.getPlayer2().getBead().getX();
+			int y2 = board.getPlayer2().getBead().getY();
+			String id2 = "#cell" + ((y2 < 10) ? "0" + y2 : y2) + ((x2 < 10) ? "0" + x2 : x2);
+			bead2.setLayoutX(play.getScene().lookup(id2).getLayoutX());
+			bead2.setLayoutY(play.getScene().lookup(id2).getLayoutY());
 			// adding style
 			bead1.setStyle("-fx-background-size: 40 40;" +
 					               "-fx-background-radius: 40;" +
@@ -142,12 +142,12 @@ public class Controller {
 	}
 	@FXML
 	protected void BeadMover(MouseEvent event) {
-		int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
+		int index = Integer.parseInt(((AnchorPane) event.getSource()).getId().substring(4));
 		int x = index % 100, y = index / 100;
 		try {
 			this.board.move(x, y);
 			// move the on-screen bead
-			AnchorPane clicked = (AnchorPane)event.getSource();
+			AnchorPane clicked = (AnchorPane) event.getSource();
 			AnchorPane bead = (board.getTurn().getId() == 'U') ? bead1 : bead2;
 
 			bead.setLayoutX(clicked.getLayoutX());
@@ -208,7 +208,7 @@ public class Controller {
 		play.getScene().lookup(id1).setStyle(color);
 		play.getScene().lookup(id2).setStyle(color);
 	}
-	@FXML
+	@FXML // return to initial colors
 	protected void baseColor(MouseEvent event) {
 		int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
 		int x = index % 100, y = index / 100;
@@ -232,7 +232,7 @@ public class Controller {
 			play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
 		}
 	}
-
+	// do the winner stuff
 	private void win() {
 		Player winner = board.win();
 		if (winner == null) {
@@ -265,4 +265,39 @@ public class Controller {
 				cell.setOnMouseExited(null);
 			}
 	}
+	@FXML
+	protected void save() { FileManager.save(board); }
+
+	// shall be changed load object
+	@FXML protected ListView<String> load_files;
+	// load methods
+	@FXML
+	protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
+
+	private void initializeLoad() {
+		load_files = (ListView<String>) play.getScene().lookup("#load_files");
+		ArrayList<String[]> files = FileManager.load();
+
+		for (String[] details : files)
+			load_files.getItems().add(details[1] + '\t' + details[2] + '\t' + details[0]);
+
+		load_files.setOnMouseClicked(event -> {
+			String file_name = load_files.getSelectionModel().getSelectedItem().split("\t")[2];
+			if (FileManager.load(new File(System.getProperty("user.dir") + "/load/" + file_name + ".csv"), this))
+				try {
+					gotoGame();
+				} catch (IOException ioException) {
+					ioException.printStackTrace();
+				}
+			else
+				System.out.println("Something went wrong");
+		});
+	}
+
+	// menu methods
+	@FXML
+	protected void gotoMenu() throws IOException { play.gotoFXML("mainMenu.fxml"); }
+
+	@FXML
+	protected void Exit() { play.getPrimaryStage().close(); }
 }

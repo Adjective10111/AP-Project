@@ -19,7 +19,7 @@ public class Play extends Application {
     private Scene scene;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         start();
     }
@@ -39,7 +39,6 @@ public class Play extends Application {
         this.getScene().setRoot(parent);
         Controller controller = loader.getController();
         controller.setPlay(this);
-        controller.setBoard(new Board());
     }
 
     protected Scene getScene() { return this.scene; }

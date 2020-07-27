@@ -2,23 +2,23 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+
 <BorderPane minHeight="595.0" minWidth="520.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
    <top>
       <MenuBar prefHeight="20.0" BorderPane.alignment="CENTER">
          <Menu mnemonicParsing="false" text="Game">
-            <MenuItem mnemonicParsing="false" text="New Game"/>
-            <MenuItem mnemonicParsing="false" text="Load Game"/>
+            <MenuItem mnemonicParsing="false" onAction="#gotoNewGame" text="New Game" />
+            <MenuItem mnemonicParsing="false" onAction="#gotoLoad" text="Load Game" />
          </Menu>
          <Menu mnemonicParsing="false" text="Exit">
-            <MenuItem mnemonicParsing="false" text="Save"/>
-            <MenuItem mnemonicParsing="false" onAction="#gotoMenu" text="Quit"/>
+            <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
+            <MenuItem mnemonicParsing="false" onAction="#gotoMenu" text="Quit" />
          </Menu>
       </MenuBar>
    </top>
    <center>
       <AnchorPane fx:id="game_pane" minHeight="570.0" minWidth="520.0" style="-fx-background-color: #f2e2a6">
-         <AnchorPane fx:id="table" layoutX="225.0" layoutY="150.0" minHeight="440.0" minWidth="440.0" prefWidth="440.0"
-                     AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0"/>
+         <AnchorPane fx:id="table" layoutX="225.0" layoutY="150.0" minHeight="440.0" minWidth="440.0" prefWidth="440.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
       </AnchorPane>
    </center>
 </BorderPane>

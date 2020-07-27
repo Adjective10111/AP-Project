@@ -10,7 +10,7 @@
          <Font name="Bookman Old Style" size="40.0" />
       </font>
    </Label>
-   <Button fx:id="NewGame" layoutX="201.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#gotoGame" prefWidth="119.0" text="New Game">
+   <Button fx:id="NewGame" layoutX="201.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#gotoNewGame" prefWidth="119.0" text="New Game">
       <font>
          <Font name="Arial Rounded MT Bold" size="17.0" />
       </font>

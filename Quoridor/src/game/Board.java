@@ -5,21 +5,37 @@ import java.util.InputMismatchException;
 
 public class Board{
 	private int[][] board = new int[17][17];
-	Player player1 = new Player('U');
-	Player player2 = new Player('D');
-	Player turn = player1;
+	Player player1;
+	Player player2;
+	Player turn;
 
 	public Board(){
 		for(int[] ints : board)
 			Arrays.fill(ints,0);
 		board[0][8] = 1;
 		board[16][8] = 2;
+		player1 = new Player('U');
+		player2 = new Player('D');
+		turn = player1;
+	}
+	public Board(String[] player1info, String[] player2info) {
+		for(int[] ints : board)
+			Arrays.fill(ints,0);
+		player1 = new Player(player1info[0], Integer.parseInt(player1info[1]));
+		player2 = new Player(player2info[0], Integer.parseInt(player2info[1]));
 	}
 
 	public int[][] getBoard() { return board; }
 	public Player getTurn() { return turn; }
 	public Player getPlayer1() { return player1; }
 	public Player getPlayer2() { return player2; }
+	public void setCell(int y, int x, int value) {
+		board[y][x] = value;
+		if (value == 1)
+			player1.setBead(y, x);
+		else if (value == 2)
+			player2.setBead(y, x);
+	}
 
 	public void turn() {
 		if (this.turn == player1)
