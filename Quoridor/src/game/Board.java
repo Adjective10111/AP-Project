@@ -66,14 +66,14 @@ public class Board{
 		if (turn.id == 'D') {
 			for (int i = 0; i < 17; i += 2) {
 				if (board[turn.bead.getY()][turn.bead.getX()] == board[0][i]) {
-					return player1;
+					return player2;
 				}
 			}
 		}
 		else if (turn.id == 'U') {
 			for (int i = 0; i < 17; i += 2) {
 				if (board[turn.bead.getY()][turn.bead.getX()] == board[16][i]) {
-					return player2;
+					return player1;
 				}
 			}
 		}
