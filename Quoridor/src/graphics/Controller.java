@@ -3,6 +3,8 @@ package graphics;
 import game.Board;
 import game.Player;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
@@ -10,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import load.FileManager;
 
 import java.io.File;
@@ -126,20 +129,26 @@ public class Controller {
         }
         // initialize the labels
         {
+            // Align the names
+            String name1 = board.getPlayer1().getName(), name2 = board.getPlayer2().getName();
+            for (; name1.length() < name2.length(); name1 += " ");
+            for (; name2.length() < name1.length(); name2 += " ");
             // initialize player1's label
-            player1info = new Label(board.getPlayer1().getName() + "\t\tRemaining Walls: " + board.getWall().getPlayer1_walls());
+            player1info = new Label(name1 + "\t\tRemaining Walls: " + board.getWall().getPlayer1_walls());
             player1info.setId("player1info");
             player1info.setTextFill(Color.ROYALBLUE);
             player1info.setLayoutY(0);
             player1info.setPrefSize(520, 45);
             player1info.setFont(new Font("Arial Rounded MT Bold", 16));
+            player1info.setAlignment(Pos.CENTER);
             // initialize player2's label
-            player2info = new Label(board.getPlayer2().getName() + "\t\tRemaining Walls: " + board.getWall().getPlayer2_walls());
+            player2info = new Label(name2 + "\t\tRemaining Walls: " + board.getWall().getPlayer2_walls());
             player2info.setId("player2info");
             player2info.setTextFill(Color.LIMEGREEN);
             player2info.setLayoutY(45);
             player2info.setPrefSize(520, 45);
             player2info.setFont(new Font("Arial Rounded MT Bold", 16));
+            player2info.setAlignment(Pos.CENTER);
             // add to scene
             game_pane.getChildren().addAll(player1info, player2info);
         }
