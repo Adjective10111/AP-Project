@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.concurrent.TimeUnit;
 
 public class Controller {
     private Play play;
@@ -126,17 +127,19 @@ public class Controller {
         // initialize the labels
         {
             // initialize player1's label
-            player1info = new Label(board.getPlayer1().getName() + '\t' + "Remaining Walls: " + board.getWall().getPlayer1_walls());
+            player1info = new Label(board.getPlayer1().getName() + "\t\tRemaining Walls: " + board.getWall().getPlayer1_walls());
             player1info.setId("player1info");
             player1info.setTextFill(Color.ROYALBLUE);
             player1info.setLayoutY(0);
             player1info.setPrefSize(520, 45);
+            player1info.setFont(new Font("Arial Rounded MT Bold", 16));
             // initialize player2's label
-            player2info = new Label(board.getPlayer2().getName() + '\t' + "Remaining Walls: " + board.getWall().getPlayer2_walls());
+            player2info = new Label(board.getPlayer2().getName() + "\t\tRemaining Walls: " + board.getWall().getPlayer2_walls());
             player2info.setId("player2info");
             player2info.setTextFill(Color.LIMEGREEN);
             player2info.setLayoutY(45);
             player2info.setPrefSize(520, 45);
+            player2info.setFont(new Font("Arial Rounded MT Bold", 16));
             // add to scene
             game_pane.getChildren().addAll(player1info, player2info);
         }
@@ -153,21 +156,7 @@ public class Controller {
 
             bead.setLayoutX(clicked.getLayoutX());
             bead.setLayoutY(clicked.getLayoutY());
-        } catch (InputMismatchException exception) {
-            // get label's current status
-            Label player_info = (board.getTurn().getId() == 'U') ? player1info : player2info;
-            String info = player_info.getText();
-            Paint textFill = player_info.getTextFill();
-            // change it
-            player_info.setFont(new Font(player_info.getFont().getStyle(), 20));
-            player_info.setTextFill(Color.RED);
-            player_info.setText(exception.getMessage().toUpperCase());
-            // wait and return to previous status
-            try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
-            player_info.setFont(new Font(player_info.getFont().getStyle(), 16));
-            player_info.setTextFill(textFill);
-            player_info.setText(info);
-        }
+        } catch (InputMismatchException exception) { handle(exception); }
         win();
     }
     @FXML
@@ -244,21 +233,23 @@ public class Controller {
                 play.getScene().lookup(id2).setOnMouseClicked(null);
             }
             this.board.turn();
-        } catch (InputMismatchException exception) {
-            // get label's current status
-            Label player_info = (board.getTurn().getId() == 'U') ? player1info : player2info;
-            String info = player_info.getText();
-            Paint textFill = player_info.getTextFill();
-            // change it
-            player_info.setFont(new Font(player_info.getFont().getStyle(), 20));
-            player_info.setTextFill(Color.RED);
-            player_info.setText(exception.getMessage().toUpperCase());
-            // wait and return to previous status
-            try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
-            player_info.setFont(new Font(player_info.getFont().getStyle(), 16));
-            player_info.setTextFill(textFill);
-            player_info.setText(info);
-        }
+        } catch (InputMismatchException exception) { handle(exception); }
+    }
+    // handle wrong placement
+    protected void handle(Exception exception) {
+        // get label's current status
+        Label player_info = (board.getTurn().getId() == 'U') ? player1info : player2info;
+        String info = player_info.getText();
+        Paint textFill = player_info.getTextFill();
+        // change it
+        player_info.setFont(new Font("Segoe UI Semibold", 20));
+        player_info.setTextFill(Color.RED);
+        player_info.setText(exception.getMessage().toUpperCase());
+        // wait and return to previous status
+        try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+        player_info.setFont(new Font("Arial Rounded MT Bold", 16));
+        player_info.setTextFill(textFill);
+        player_info.setText(info);
     }
     @FXML // return to initial colors
     protected void baseColor(MouseEvent event) {

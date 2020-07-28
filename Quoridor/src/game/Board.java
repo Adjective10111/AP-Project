@@ -59,7 +59,7 @@ public class Board{
             board[turn.bead.getY()][turn.bead.getX()] = (turn.id == 'U')? PLAYER1_CELL : PLAYER2_CELL;
         }
         else
-            throw new InputMismatchException("invalid place");
+            throw new InputMismatchException("INVALID PLACE");
 
         turn();
     }
@@ -90,10 +90,10 @@ public class Board{
                 board[y + 2][x] = WALL;
             }
             else
-                throw new InputMismatchException("invalid place");
+                throw new InputMismatchException("Can NOT place it here");
         }
         else
-            throw new InputMismatchException("invalid place");
+            throw new InputMismatchException("Can NOT place it here");
     }
 
     public boolean canPlaceWall(int x, int y) {
