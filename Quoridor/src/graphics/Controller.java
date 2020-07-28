@@ -42,7 +42,7 @@ public class Controller {
         table = (AnchorPane)(play.getScene().lookup("#table"));
         game_pane = (AnchorPane)(play.getScene().lookup("#game_pane"));
         final double NARROW = 10, THICK = 40;
-
+        // initialize cells
         int y = 0;
         for (int i = 0; i < 17; ++i) {
             int x = 0;
@@ -75,12 +75,13 @@ public class Controller {
                     x += NARROW;
                 }
                 // add functionality
-                cell.setOnMouseClicked(this::BeadMover);
                 if (((j % 2 == 0 && i % 2 == 1) || (j % 2 == 1 && i % 2 == 0)) && i != 16 && j != 16) {
+                    cell.setOnMouseClicked(this::placeWall);
                     cell.setOnMouseEntered(this::canPlace);
                     cell.setOnMouseExited(this::baseColor);
                 }
                 else if (cell.getStyle().equals("-fx-background-color: maroon")) {
+                    cell.setOnMouseClicked(this::beadMover);
                     cell.setOnMouseEntered(this::canMove);
                     cell.setOnMouseExited(this::baseColor);
                 }
@@ -141,7 +142,7 @@ public class Controller {
         }
     }
     @FXML
-    protected void BeadMover(MouseEvent event) {
+    protected void beadMover(MouseEvent event) {
         int index = Integer.parseInt(((AnchorPane) event.getSource()).getId().substring(4));
         int x = index % 100, y = index / 100;
         try {
@@ -198,7 +199,6 @@ public class Controller {
             id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
             id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
         }
-        // todo: merge the function
 		if (board.canPlaceWall(x, y))
 			color += "cornflowerblue";
 		else
@@ -208,14 +208,15 @@ public class Controller {
         play.getScene().lookup(id1).setStyle(color);
         play.getScene().lookup(id2).setStyle(color);
     }
-    @FXML // return to initial colors
-    protected void baseColor(MouseEvent event) {
-        int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
+    @FXML
+    protected void placeWall(MouseEvent event) {
+        AnchorPane wall_space = (AnchorPane) event.getSource();
+        int index = Integer.parseInt(wall_space.getId().substring(4));
         int x = index % 100, y = index / 100;
-        if (x % 2 == 0 && y % 2 == 0)
-            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: maroon");
-        else {
-            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: chocolate");
+        try {
+            this.board.placeWall(x, y);
+            // change the on-screen wall
+            wall_space.setStyle("-fx-background-color: khaki");
             String id1 = "#cell";
             String id2 = "#cell";
             if (y % 2 == 1) {
@@ -228,8 +229,75 @@ public class Controller {
                 id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
                 id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
             }
-            play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
-            play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
+            play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
+            play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+            // removing listeners
+            {
+                wall_space.setOnMouseExited(null);
+                wall_space.setOnMouseEntered(null);
+                wall_space.setOnMouseClicked(null);
+                play.getScene().lookup(id1).setOnMouseExited(null);
+                play.getScene().lookup(id1).setOnMouseEntered(null);
+                play.getScene().lookup(id1).setOnMouseClicked(null);
+                play.getScene().lookup(id2).setOnMouseExited(null);
+                play.getScene().lookup(id2).setOnMouseEntered(null);
+                play.getScene().lookup(id2).setOnMouseClicked(null);
+            }
+            this.board.turn();
+        } catch (InputMismatchException exception) {
+            // get label's current status
+            Label player_info = (board.getTurn().getId() == 'U') ? player1info : player2info;
+            String info = player_info.getText();
+            Paint textFill = player_info.getTextFill();
+            // change it
+            player_info.setFont(new Font(player_info.getFont().getStyle(), 20));
+            player_info.setTextFill(Color.RED);
+            player_info.setText(exception.getMessage().toUpperCase());
+            // wait and return to previous status
+            try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+            player_info.setFont(new Font(player_info.getFont().getStyle(), 16));
+            player_info.setTextFill(textFill);
+            player_info.setText(info);
+        }
+    }
+    @FXML // return to initial colors
+    protected void baseColor(MouseEvent event) {
+        int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
+        int x = index % 100, y = index / 100;
+        if (x % 2 == 0 && y % 2 == 0)
+            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: maroon");
+        else if (!((AnchorPane) event.getSource()).getStyle().equals("-fx-background-color: khaki")) {
+            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: chocolate");
+            String id1 = "#cell";
+            String id2 = "#cell";
+            if (y % 2 == 1) {
+                String y_value = ((y < 10) ? "0" + y : y).toString();
+                id1 += y_value + ((x + 1 < 10) ? "0" + (x + 1) : x + 1);
+                id2 += y_value + ((x + 2 < 10) ? "0" + (x + 2) : x + 2);
+                if (board.getBoard()[y][x + 1] != 11)
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
+                else
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
+
+                if (board.getBoard()[y][x + 2] != 11)
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
+                else
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+            }
+            else {
+                String x_value = ((x < 10) ? "0" + x : x).toString();
+                id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
+                id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
+                if (board.getBoard()[y + 1][x] != 11)
+                play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
+                else
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
+
+                if (board.getBoard()[y + 2][x] != 11)
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
+                else
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+            }
         }
     }
     // do the winner stuff

@@ -15,7 +15,7 @@ public class Board{
     Player turn;
     Wall wall = new Wall();
 
-    public Board(){
+    public Board() {
         for(int[] ints : board)
             Arrays.fill(ints,EMPTY);
         board[0][8] = 1;
