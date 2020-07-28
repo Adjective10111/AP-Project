@@ -1,32 +1,28 @@
-<<<<<<< Updated upstream
-
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane style="-fx-background-color: #f2e2a6;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
-    <Label layoutX="123.0" layoutY="60.0" prefHeight="38.0" prefWidth="415.0" text="Welcome to Quoridor" textFill="#402e07" AnchorPane.topAnchor="60.0">
+<AnchorPane minHeight="595.0" minWidth="520.0" style="-fx-background-color: #f2e2a6;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
+    <Label layoutX="62.0" layoutY="58.0" prefHeight="38.0" prefWidth="415.0" text="Welcome to Quoridor" textFill="#402e07" AnchorPane.topAnchor="58.0">
         <font>
             <Font name="Bookman Old Style" size="40.0" />
         </font>
     </Label>
-    <Button fx:id="NewGame" layoutX="266.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#gotoGame" prefWidth="119.0" text="New Game">
+    <Button fx:id="NewGame" layoutX="201.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#gotoNewGame" prefWidth="119.0" text="New Game">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
-    <Button fx:id="LoadGame" layoutX="266.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#gotoLoad" text="Load Game">
+    <Button fx:id="LoadGame" layoutX="201.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#gotoLoad" text="Load Game">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
-    <Button fx:id="LoadGame1" layoutX="266.0" layoutY="547.0" mnemonicParsing="false" onMouseClicked="#Exit" prefWidth="119.0" text="Exit">
+    <Button fx:id="LoadGame1" layoutX="201.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#Exit" prefWidth="119.0" text="Exit">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
 </AnchorPane>
->>>>>>> Stashed changes

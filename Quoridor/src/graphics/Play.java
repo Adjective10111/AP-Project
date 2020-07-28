@@ -4,6 +4,7 @@ import game.Board;
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,11 +17,9 @@ import java.io.IOException;
 public class Play extends Application {
     private Stage primaryStage;
     private Scene scene;
-    private Board board = new Board();
-    Observable observable = FXCollections.observableArrayList();
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         start();
     }
@@ -40,7 +39,6 @@ public class Play extends Application {
         this.getScene().setRoot(parent);
         Controller controller = loader.getController();
         controller.setPlay(this);
-        controller.setBoard(this.board);
     }
 
     protected Scene getScene() { return this.scene; }

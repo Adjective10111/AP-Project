@@ -12,12 +12,15 @@ public class Wall {
         boardGraph = new BoardGraph();
     }
 
+    public int getPlayer1_walls() { return Player1_walls; }
+    public int getPlayer2_walls() { return Player2_walls; }
+
     public boolean placeWall(int[][] board, Player player1, Player player2, Player turn, int x, int y) {
         int wallRemaining = turn.getId() == 'U' ? Player1_walls : Player2_walls;
 
-        //horizontal Wall
-        if ( (wallRemaining > 0 && y % 2 == 0 && x % 2 == 1 && board[x][y + 1] == EMPTY && board[x][y + 2] == EMPTY) ||
-             (wallRemaining > 0 && y % 2 == 1 && x % 2 == 0 && board[x + 1][y] == EMPTY && board[x + 2][y] == EMPTY) ) {
+        //horizontal Wall  //Vertical Wall
+        if ( (wallRemaining > 0 && x % 2 == 0 && y % 2 == 1 && board[y][x + 1] == EMPTY && board[y][x + 2] == EMPTY) ||
+             (wallRemaining > 0 && x % 2 == 1 && y % 2 == 0 && board[y + 1][x] == EMPTY && board[y + 2][x] == EMPTY) ) {
 
             if (allowedWall(player1, player2, x, y)) {
 
@@ -39,6 +42,15 @@ public class Wall {
 
         return boardGraph.allowedRemoveEdge(player1, player2, x, y);
 
+    }
+
+    protected boolean canPlaceWall(int[][] board, Player player1, Player player2, int x, int y) {
+
+        if ( (x % 2 == 0 && y % 2 == 1 && board[y][x + 1] == EMPTY && board[y][x + 2] == EMPTY) ||
+             (x % 2 == 1 && y % 2 == 0 && board[y + 1][x] == EMPTY && board[y + 2][x] == EMPTY) )
+            return boardGraph.canRemoveEdge(player1, player2, x, y);
+
+        return false;
     }
 
 }
