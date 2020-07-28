@@ -3,20 +3,14 @@ package game;
 public class Wall {
 
     private final int EMPTY = 0;
-
     private BoardGraph boardGraph;
-    private int Player1_walls = 10;
-    private int Player2_walls = 10;
 
     public Wall() {
         boardGraph = new BoardGraph();
     }
 
-    public int getPlayer1_walls() { return Player1_walls; }
-    public int getPlayer2_walls() { return Player2_walls; }
-
     public boolean placeWall(int[][] board, Player player1, Player player2, Player turn, int x, int y) {
-        int wallRemaining = turn.getId() == 'U' ? Player1_walls : Player2_walls;
+        int wallRemaining = turn.getId() == 'U' ? player1.getWalls() : player2.getWalls();
         //Horizontal Wall  //Vertical Wall
         if ( (wallRemaining > 0 && x % 2 == 0 && y % 2 == 1 && board[y][x + 1] == EMPTY && board[y][x + 2] == EMPTY) ||
              (wallRemaining > 0 && x % 2 == 1 && y % 2 == 0 && board[y + 1][x] == EMPTY && board[y + 2][x] == EMPTY) ) {
@@ -24,9 +18,9 @@ public class Wall {
             if (allowedWall(player1, player2, x, y)) {
                 //decrease number of player walls
                 if (turn.getId() == 'U')
-                    Player1_walls--;
+                    player1.decreaseWalls();
                 else
-                    Player2_walls--;
+                    player2.decreaseWalls();
 
                 return true;
             }

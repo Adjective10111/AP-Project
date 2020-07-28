@@ -19,6 +19,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class Controller {
@@ -134,7 +136,7 @@ public class Controller {
             for (; name1.length() < name2.length(); name1 += " ");
             for (; name2.length() < name1.length(); name2 += " ");
             // initialize player1's label
-            player1info = new Label(name1 + "\t\tRemaining Walls: " + board.getWall().getPlayer1_walls());
+            player1info = new Label(name1 + "\t\tRemaining Walls: " + board.getPlayer1().getWalls());
             player1info.setId("player1info");
             player1info.setTextFill(Color.ROYALBLUE);
             player1info.setLayoutY(0);
@@ -142,7 +144,7 @@ public class Controller {
             player1info.setFont(new Font("Arial Rounded MT Bold", 16));
             player1info.setAlignment(Pos.CENTER);
             // initialize player2's label
-            player2info = new Label(name2 + "\t\tRemaining Walls: " + board.getWall().getPlayer2_walls());
+            player2info = new Label(name2 + "\t\tRemaining Walls: " + board.getPlayer2().getWalls());
             player2info.setId("player2info");
             player2info.setTextFill(Color.LIMEGREEN);
             player2info.setLayoutY(45);
@@ -161,12 +163,14 @@ public class Controller {
             this.board.move(x, y);
             // move the on-screen bead
             AnchorPane clicked = (AnchorPane) event.getSource();
-            AnchorPane bead = (board.getTurn().getId() == 'U') ? bead2 : bead1;
+            AnchorPane bead = (board.getTurn().getId() == 'U') ? bead1 : bead2;
 
             bead.setLayoutX(clicked.getLayoutX());
             bead.setLayoutY(clicked.getLayoutY());
+
+            win();
+            this.board.turn();
         } catch (InputMismatchException exception) { handle(exception); }
-        win();
     }
     @FXML
     protected void canMove(MouseEvent event) {
@@ -241,6 +245,11 @@ public class Controller {
                 play.getScene().lookup(id2).setOnMouseEntered(null);
                 play.getScene().lookup(id2).setOnMouseClicked(null);
             }
+            // change number of walls
+            Player turn = this.board.getTurn();
+            Label player_info = (turn.getId() == 'U') ? player1info : player2info;
+            player_info.setText(player_info.getText() + "\b\b0" + turn.getWalls());
+
             this.board.turn();
         } catch (InputMismatchException exception) { handle(exception); }
     }
@@ -255,7 +264,7 @@ public class Controller {
         player_info.setTextFill(Color.RED);
         player_info.setText(exception.getMessage().toUpperCase());
         // wait and return to previous status
-        try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+        try { TimeUnit.SECONDS.sleep(2); } catch (InterruptedException e) { e.printStackTrace(); }
         player_info.setFont(new Font("Arial Rounded MT Bold", 16));
         player_info.setTextFill(textFill);
         player_info.setText(info);

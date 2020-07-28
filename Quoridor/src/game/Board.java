@@ -35,20 +35,12 @@ public class Board{
     public Player getTurn() { return turn; }
     public Player getPlayer1() { return player1; }
     public Player getPlayer2() { return player2; }
-    public Wall getWall() { return wall; }
     public void setCell(int y, int x, int value) {
         board[y][x] = value;
         if (value == 1)
             player1.setBead(y, x);
         else if (value == 2)
             player2.setBead(y, x);
-    }
-
-    public void turn() {
-        if (this.turn == player1)
-            turn = player2;
-        else
-            turn = player1;
     }
 
     public void move(int x, int y) throws InputMismatchException {
@@ -60,8 +52,6 @@ public class Board{
         }
         else
             throw new InputMismatchException("INVALID PLACE");
-
-        turn();
     }
 
     public boolean canMove(int x, int y) {
@@ -101,7 +91,7 @@ public class Board{
     }
 
     public Player win() {
-        if (turn.id == 'D') {
+        if (turn.id == 'U') {
             for (int cell : board[16]) {
                 if (cell == 1)
                     return player1;
@@ -113,5 +103,12 @@ public class Board{
             }
         }
         return null;
+    }
+
+    public void turn() {
+        if (this.turn == player1)
+            turn = player2;
+        else
+            turn = player1;
     }
 }

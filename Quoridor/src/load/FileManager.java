@@ -19,8 +19,8 @@ public class FileManager {
             return false;
         }
 
-        savior.format("%s,%d\n", board.getPlayer1().getName(), board.getWall().getPlayer1_walls());
-        savior.format("%s,%d\n", board.getPlayer2().getName(), board.getWall().getPlayer2_walls());
+        savior.format("%s,%d\n", board.getPlayer1().getName(), board.getPlayer1().getWalls());
+        savior.format("%s,%d\n", board.getPlayer2().getName(), board.getPlayer2().getWalls());
         int[][] matrix = board.getBoard();
         for (int[] row : matrix) {
             for (int cell : row)
