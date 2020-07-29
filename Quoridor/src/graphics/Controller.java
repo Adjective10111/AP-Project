@@ -170,7 +170,9 @@ public class Controller {
 
             win();
             this.board.turn();
-        } catch (InputMismatchException exception) { handle(exception); }
+        } catch (InputMismatchException exception) {
+            try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
+        }
     }
     @FXML
     protected void canMove(MouseEvent event) {
@@ -252,23 +254,9 @@ public class Controller {
             player_info.setText(info + "0" + turn.getWalls());
 
             this.board.turn();
-        } catch (InputMismatchException exception) { handle(exception); }
-    }
-    // handle wrong placement
-    protected void handle(Exception exception) {
-        // get label's current status
-        Label player_info = (board.getTurn().getId() == 'U') ? player1info : player2info;
-        String info = player_info.getText();
-        Paint textFill = player_info.getTextFill();
-        // change it
-        player_info.setFont(new Font("Segoe UI Semibold", 20));
-        player_info.setTextFill(Color.RED);
-        player_info.setText(exception.getMessage().toUpperCase());
-        // wait and return to previous status
-        try { TimeUnit.SECONDS.sleep(2); } catch (InterruptedException e) { e.printStackTrace(); }
-        player_info.setFont(new Font("Arial Rounded MT Bold", 16));
-        player_info.setTextFill(textFill);
-        player_info.setText(info);
+        } catch (InputMismatchException exception) {
+            try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
+        }
     }
     @FXML // return to initial colors
     protected void baseColor(MouseEvent event) {
