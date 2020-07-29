@@ -39,7 +39,7 @@ public class Controller {
     @FXML protected AnchorPane bead2;
     // game methods
     @FXML
-    protected void gotoNewGame() throws IOException { play.gotoFXML("game.fxml"); board = new Board(); initializeGame(); }
+    protected void gotoNewGame() throws IOException { board = new Board(); gotoGame(); }
     @FXML
     protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
 
@@ -66,9 +66,9 @@ public class Controller {
                 }
                 if (j % 2 == 0) {
                     if (i % 2 == 0)
-                        cell.setStyle("-fx-background-color: maroon");
+                        cell.setStyle("-fx-background-color: slategrey");
                     else
-                        cell.setStyle("-fx-background-color: chocolate");
+                        cell.setStyle("-fx-background-color: firebrick");
                     cell.setPrefWidth(THICK);
                     x += THICK;
                 }
@@ -76,7 +76,7 @@ public class Controller {
                     if (i % 2 == 1)
                         cell.setStyle("-fx-background-color: firebrick");
                     else
-                        cell.setStyle("-fx-background-color: chocolate");
+                        cell.setStyle("-fx-background-color: firebrick");
                     cell.setPrefWidth(NARROW);
                     x += NARROW;
                 }
@@ -86,7 +86,7 @@ public class Controller {
                     cell.setOnMouseEntered(this::canPlace);
                     cell.setOnMouseExited(this::baseColor);
                 }
-                else if (cell.getStyle().equals("-fx-background-color: maroon")) {
+                else if (cell.getStyle().equals("-fx-background-color: slategrey")) {
                     cell.setOnMouseClicked(this::beadMover);
                     cell.setOnMouseEntered(this::canMove);
                     cell.setOnMouseExited(this::baseColor);
@@ -120,12 +120,12 @@ public class Controller {
             bead1.setStyle("-fx-background-size: 40 40;" +
                     "-fx-background-radius: 40;" +
                     "-fx-border-radius: 40;" +
-                    "-fx-background-color: royalblue");
+                    "-fx-background-color: black");
 
             bead2.setStyle("-fx-background-size: 40 40;" +
                     "-fx-background-radius: 40;" +
                     "-fx-border-radius: 40;" +
-                    "-fx-background-color: limegreen");
+                    "-fx-background-color: white");
             // add to the table
             table.getChildren().addAll(bead1, bead2);
         }
@@ -178,9 +178,9 @@ public class Controller {
         int x = index % 100, y = index / 100;
         if (board.canMove(x, y))
             if (board.getTurn().getId() == 'U')
-                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: deepskyblue");
+                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: darkgrey");
             else
-                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: lawngreen");
+                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: floralwhite");
         else
             ((AnchorPane) event.getSource()).setStyle("-fx-background-color: red");
     }
@@ -275,9 +275,9 @@ public class Controller {
         int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
         int x = index % 100, y = index / 100;
         if (x % 2 == 0 && y % 2 == 0)
-            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: maroon");
+            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: slategrey");
         else if (!((AnchorPane) event.getSource()).getStyle().equals("-fx-background-color: khaki")) {
-            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: chocolate");
+            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: firebrick");
             String id1 = "#cell";
             String id2 = "#cell";
             if (y % 2 == 1) {
@@ -290,7 +290,7 @@ public class Controller {
                     play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
 
                 if (board.getBoard()[y][x + 2] != 11)
-                    play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: firebrick");
                 else
                     play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
             }
@@ -304,7 +304,7 @@ public class Controller {
                     play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
 
                 if (board.getBoard()[y + 2][x] != 11)
-                    play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: firebrick");
                 else
                     play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
             }
