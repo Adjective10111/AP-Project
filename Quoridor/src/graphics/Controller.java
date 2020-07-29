@@ -248,7 +248,8 @@ public class Controller {
             // change number of walls
             Player turn = this.board.getTurn();
             Label player_info = (turn.getId() == 'U') ? player1info : player2info;
-            player_info.setText(player_info.getText() + "\b\b0" + turn.getWalls());
+            String info = player_info.getText().substring(0, player_info.getText().length() - 2);
+            player_info.setText(info + "0" + turn.getWalls());
 
             this.board.turn();
         } catch (InputMismatchException exception) { handle(exception); }
