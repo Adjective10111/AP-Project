@@ -328,9 +328,9 @@ public class Controller {
             loser_info = player1info;
         }
 
-        winner_info.setFont(new Font(winner_info.getFont().getStyle(), 20));
+        winner_info.setFont(new Font("Segoe UI Semibold", 20));
         winner_info.setText("You Won!!");
-        loser_info.setFont(new Font(loser_info.getFont().getStyle(), 20));
+        loser_info.setFont(new Font("Segoe UI Semibold", 20));
         loser_info.setText("You Lost :)");
 
         for (int i = 0; i < 17; ++i)

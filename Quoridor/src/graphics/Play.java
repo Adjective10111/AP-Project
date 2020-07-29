@@ -26,6 +26,7 @@ public class Play extends Application {
         primaryStage.setTitle("Quoridor Game");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
         primaryStage.setScene(this.scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
