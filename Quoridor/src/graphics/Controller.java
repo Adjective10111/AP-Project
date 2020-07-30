@@ -45,8 +45,8 @@ public class Controller {
 
     protected void initializeGame() {
         // creating the board
-        table = (AnchorPane)(play.getScene().lookup("#table"));
         game_pane = (AnchorPane)(play.getScene().lookup("#game_pane"));
+        table = (AnchorPane)(play.getScene().lookup("#table"));
         final double NARROW = 10, THICK = 40;
         // initialize cells
         int y = 0;
@@ -335,18 +335,30 @@ public class Controller {
     protected void save() { FileManager.save(board); }
 
     // shall be changed load object
+    @FXML protected AnchorPane load_pane;
     @FXML protected ListView<String> load_files;
     // load methods
     @FXML
     protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
 
     private void initializeLoad() {
-        load_files = (ListView<String>) play.getScene().lookup("#load_files");
-        ArrayList<String[]> files = FileManager.load();
+        // initialize load files' list
+        {
+            load_pane = (AnchorPane)(play.getScene().lookup("#load_pane"));
 
+            load_files = new ListView<>();
+            load_files.setPrefSize(390, 400);
+            load_files.setLayoutX(65);
+            load_files.setLayoutY(185);
+
+            load_pane.getChildren().add(load_files);
+        }
+        // get files' names
+        ArrayList<String[]> files = FileManager.load();
+        // add them to the list
         for (String[] details : files)
             load_files.getItems().add(details[1] + '\t' + details[2] + '\t' + details[0]);
-
+        // set a listener for the items
         load_files.setOnMouseClicked(event -> {
             String file_name = load_files.getSelectionModel().getSelectedItem().split("\t")[2];
             if (FileManager.load(new File(System.getProperty("user.dir") + "/load/" + file_name + ".csv"), this))
