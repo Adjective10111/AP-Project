@@ -24,7 +24,7 @@ public class Cup {
            Collections.shuffle(players);
            if (players.size() % 2 != 0){
                players.set(0, true);
-               for ( int j = 0; j < players.size() -1 ; j += 2){
+               for ( int j = 1; j < players.size() -1 ; j += 2){
                         //players.get(i) players.get(i+1)
 
                        }
