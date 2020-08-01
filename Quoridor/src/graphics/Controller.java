@@ -25,11 +25,16 @@ import java.util.concurrent.TimeUnit;
 
 public class Controller {
     private Play play;
-    private Board board;
+    private Board board = new Board();
     public void setPlay(Play play) {
         this.play = play;
     }
     public void setBoard(Board board) { this.board = board; }
+    // game modes gotos
+    @FXML
+    protected void gotoMenu() throws IOException { play.gotoFXML("main menu.fxml"); }
+    @FXML
+    protected void gotoNewGame() throws IOException { board = new Board(); gotoGame(); }
     // shall be changed game objects
     @FXML protected AnchorPane game_pane;
     @FXML protected Label player1info;
@@ -38,11 +43,6 @@ public class Controller {
     @FXML protected AnchorPane bead1;
     @FXML protected AnchorPane bead2;
     // game methods
-    @FXML
-    protected void gotoNewGame() throws IOException { board = new Board(); gotoGame(); }
-    @FXML
-    protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
-
     protected void initializeGame() {
         // creating the board
         game_pane = (AnchorPane)(play.getScene().lookup("#game_pane"));
@@ -339,7 +339,7 @@ public class Controller {
     @FXML protected ListView<String> load_files;
     // load methods
     @FXML
-    protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
+    protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
 
     private void initializeLoad() {
         // initialize load files' list
@@ -374,8 +374,9 @@ public class Controller {
 
     // menu methods
     @FXML
-    protected void gotoMenu() throws IOException { play.gotoFXML("mainMenu.fxml"); }
-
+    protected void gotoGameModes() throws IOException { play.gotoFXML("game.fxml"); }
+    @FXML
+    protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
     @FXML
     protected void Exit() { play.getPrimaryStage().close(); }
 }
