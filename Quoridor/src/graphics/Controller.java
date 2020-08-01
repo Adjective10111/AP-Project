@@ -30,6 +30,13 @@ public class Controller {
         this.play = play;
     }
     public void setBoard(Board board) { this.board = board; }
+    // menu methods
+    @FXML
+    protected void gotoGameModes() throws IOException { play.gotoFXML("game modes.fxml"); }
+    @FXML
+    protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
+    @FXML
+    protected void Exit() { play.getPrimaryStage().close(); }
     // game modes gotos
     @FXML
     protected void gotoMenu() throws IOException { play.gotoFXML("main menu.fxml"); }
@@ -371,12 +378,4 @@ public class Controller {
                 System.out.println("Something went wrong");
         });
     }
-
-    // menu methods
-    @FXML
-    protected void gotoGameModes() throws IOException { play.gotoFXML("game.fxml"); }
-    @FXML
-    protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
-    @FXML
-    protected void Exit() { play.getPrimaryStage().close(); }
 }
