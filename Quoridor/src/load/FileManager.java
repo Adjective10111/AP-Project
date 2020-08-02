@@ -7,7 +7,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Formatter;
+import java.util.Scanner;
 
 public class FileManager {
     public static boolean save(Board board) {
@@ -73,9 +76,9 @@ public class FileManager {
                 if (!cells[j].equals("0"))
                     board.setCell(i, j, Integer.parseInt(cells[j]));
         }
-        controller.setBoard(board);
-
         loader.close();
+
+        controller.setBoard(board);
         return true;
     }
 }

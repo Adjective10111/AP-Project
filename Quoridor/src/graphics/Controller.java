@@ -80,10 +80,7 @@ public class Controller {
                     x += THICK;
                 }
                 else {
-                    if (i % 2 == 1)
-                        cell.setStyle("-fx-background-color: firebrick");
-                    else
-                        cell.setStyle("-fx-background-color: firebrick");
+                    cell.setStyle("-fx-background-color: firebrick");
                     cell.setPrefWidth(NARROW);
                     x += NARROW;
                 }

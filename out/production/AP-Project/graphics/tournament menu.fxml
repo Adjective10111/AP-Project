@@ -10,7 +10,7 @@
             <Font name="Bookman Old Style" size="18.0" />
         </font>
     </Label>
-    <Button layoutX="387.0" layoutY="548.0" mnemonicParsing="false" onMouseClicked="#Exit" prefWidth="119.0" text="Finish">
+    <Button layoutX="387.0" layoutY="548.0" mnemonicParsing="false" prefWidth="119.0" text="Finish">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
