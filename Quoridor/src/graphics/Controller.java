@@ -25,11 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Controller {
     private Play play;
-    private Board board = new Board();
-    public void setPlay(Play play) {
-        this.play = play;
-    }
-    public void setBoard(Board board) { this.board = board; }
+    public void setPlay(Play play) { this.play = play; }
     // menu methods
     @FXML
     protected void gotoGameModes() throws IOException { play.gotoFXML("game modes.fxml"); }
@@ -37,11 +33,15 @@ public class Controller {
     protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
     @FXML
     protected void Exit() { play.getPrimaryStage().close(); }
+
     // game modes gotos
     @FXML
     protected void gotoMenu() throws IOException { play.gotoFXML("main menu.fxml"); }
     @FXML
     protected void gotoNewGame() throws IOException { board = new Board(); gotoGame(); }
+
+    private Board board = new Board();
+    public void setBoard(Board board) { this.board = board; }
     // shall be changed game objects
     @FXML protected AnchorPane game_pane;
     @FXML protected Label player1info;
