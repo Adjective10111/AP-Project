@@ -16,33 +16,23 @@
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
-    <Button layoutX="147.0" layoutY="154.0" mnemonicParsing="false" onMouseClicked="#gotoPlayerSettings" prefHeight="33.0" prefWidth="227.0" text="PLAYER versus PLAYER">
+    <Button layoutX="147.0" layoutY="208.0" mnemonicParsing="false" onMouseClicked="#gotoPlayerSettings" prefHeight="33.0" prefWidth="227.0" text=" Single Match">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
-    <Button layoutX="147.0" layoutY="220.0" mnemonicParsing="false" prefWidth="227.0" text="PLAYER versus BOT   ">
+    <Button layoutX="147.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#gotoCup" prefWidth="227.0" text="TOURNAMENT">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
-    <Button layoutX="147.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#gotoCup" prefWidth="227.0" text="TOURNAMENT">
-        <font>
-            <Font name="Arial Rounded MT Bold" size="17.0" />
-        </font>
-    </Button>
-   <Line endX="-15.0" fill="BLACK" layoutX="251.0" layoutY="328.0" startX="-132.0" />
-   <Label layoutX="244.0" layoutY="317.0" prefHeight="16.0" prefWidth="32.0" text="OR" textAlignment="CENTER" textFill="#402e07">
+   <Line endX="-15.0" fill="BLACK" layoutX="249.0" layoutY="285.0" startX="-132.0" />
+   <Label layoutX="244.0" layoutY="274.0" prefHeight="16.0" prefWidth="32.0" text="OR" textAlignment="CENTER" textFill="#402e07">
       <font>
          <Font name="Bookman Old Style" size="20.0" />
       </font>
    </Label>
-   <Line endX="-15.0" fill="BLACK" layoutX="417.0" layoutY="327.0" startX="-132.0" />
-   <Line endX="117.0" endY="42.0" layoutX="119.0" layoutY="297.0" startX="117.0" startY="21.0" />
-   <Line endX="117.0" endY="42.0" layoutX="167.0" layoutY="296.0" startX="117.0" startY="21.0" />
-   <Label layoutX="147.0" layoutY="428.0" prefHeight="24.0" prefWidth="227.0" text=" with support for unlimited number of players" textAlignment="CENTER" textFill="#402e07">
-      <font>
-         <Font name="Bookman Old Style" size="10.0" />
-      </font>
-   </Label>
+   <Line endX="-15.0" fill="BLACK" layoutX="416.0" layoutY="286.0" startX="-132.0" />
+   <Line endX="117.0" endY="42.0" layoutX="119.0" layoutY="254.0" startX="117.0" startY="21.0" />
+   <Line endX="117.0" endY="42.0" layoutX="166.0" layoutY="255.0" startX="117.0" startY="21.0" />
 </AnchorPane>

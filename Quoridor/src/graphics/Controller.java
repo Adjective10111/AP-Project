@@ -5,9 +5,7 @@ import game.Player;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -36,32 +34,53 @@ public class Controller {
     @FXML
     protected void gotoMenu() throws IOException { play.gotoFXML("main menu.fxml"); }
     @FXML
-    protected void gotoPlayerSettings() throws IOException {
-        play.gotoFXML("player settings.fxml");
-
-
-    }
+    protected void gotoPlayerSettings() throws IOException { play.gotoFXML("player settings.fxml"); }
     @FXML
     protected void gotoCup() throws IOException { play.gotoFXML("tournament menu.fxml"); }
+
+    // player settings
+    @FXML protected TextField player1name;
+    @FXML protected TextField player2name;
+    @FXML protected ToggleButton bot1;
+    @FXML protected ToggleButton bot2;
+    @FXML protected Label status;
+
     @FXML
     protected void gotoNewGame() throws IOException {
-        // board = new Board({name1, "U", walls}, {name2, "D", walls}, 1);
+        if (player1name.getText().equals(player2name.getText())) {
+            status.setText("The names should not match...");
+            return;
+        }
+        // todo
+//        if (bot1.isSelected()) {
+//            board.setPlayer1(new AI());
+//            player1name.setText(player1name.getText() + " (BOT)");
+//        }
+//        if (bot2.isSelected()) {
+//            board.setPlayer2(new AI());
+//            player2name.setText(player2name.getText() + " (BOT)");
+//        }
+
+        board = new Board(new String[] {player1name.getText(), "U", "10"},
+                          new String[] {player2name.getText(), "D", "10"}, 1);
         gotoGame();
     }
+    @FXML
+    protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
 
     private Board board;
     public void setBoard(Board board) { this.board = board; }
     // shall be changed game objects
-    @FXML protected AnchorPane game_pane;
     @FXML protected Label player1info;
+    @FXML protected Label player1walls;
     @FXML protected Label player2info;
+    @FXML protected Label player2walls;
     @FXML protected AnchorPane table;
     @FXML protected AnchorPane bead1;
     @FXML protected AnchorPane bead2;
     // game methods
     protected void initializeGame() {
         // creating the board
-        game_pane = (AnchorPane)(play.getScene().lookup("#game_pane"));
         table = (AnchorPane)(play.getScene().lookup("#table"));
         final double NARROW = 10, THICK = 40;
         // initialize cells
@@ -143,29 +162,27 @@ public class Controller {
             table.getChildren().addAll(bead1, bead2);
         }
         // initialize the labels
+        player1info = (Label) (play.getScene().lookup("#player1info"));
+        player2info = (Label) (play.getScene().lookup("#player2info"));
+        player1walls = (Label) (play.getScene().lookup("#player1walls"));
+        player2walls = (Label) (play.getScene().lookup("#player2walls"));
         {
             // Align the names
             String name1 = board.getPlayer1().getName(), name2 = board.getPlayer2().getName();
-            for (; name1.length() < name2.length(); name1 += " ");
-            for (; name2.length() < name1.length(); name2 += " ");
+            while (name1.length() < name2.length())
+                name1 += " ";
+            while (name2.length() < name1.length())
+                name2 += " ";
             // initialize player1's label
-            player1info = new Label(name1 + "\t\tRemaining Walls: " + board.getPlayer1().getWalls());
-            player1info.setId("player1info");
-            player1info.setTextFill(Color.ROYALBLUE);
-            player1info.setLayoutY(0);
-            player1info.setPrefSize(520, 45);
-            player1info.setFont(new Font("Arial Rounded MT Bold", 16));
-            player1info.setAlignment(Pos.CENTER);
+            player1info.setText(name1);
+            player1walls.setText("Remaining Walls: " + board.getPlayer1().getWalls());
+            player1info.setTextFill(Color.BLACK);
+            player1walls.setTextFill(Color.BLACK);
             // initialize player2's label
-            player2info = new Label(name2 + "\t\tRemaining Walls: " + board.getPlayer2().getWalls());
-            player2info.setId("player2info");
-            player2info.setTextFill(Color.LIMEGREEN);
-            player2info.setLayoutY(45);
-            player2info.setPrefSize(520, 45);
-            player2info.setFont(new Font("Arial Rounded MT Bold", 16));
-            player2info.setAlignment(Pos.CENTER);
-            // add to scene
-            game_pane.getChildren().addAll(player1info, player2info);
+            player2info.setText(name2);
+            player2walls.setText("Remaining Walls: " + board.getPlayer2().getWalls());
+            player2info.setTextFill(Color.DARKGREY);
+            player2walls.setTextFill(Color.DARKGREY);
         }
     }
     @FXML
@@ -222,9 +239,9 @@ public class Controller {
             win();
             this.board.turn();
             // todo: AI method shall be added
-            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
+//            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
 //                click(AI.turn(this.board));
-            }
+//            }
         } catch (InputMismatchException exception) {
             try { TimeUnit.MILLISECONDS.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
         }
@@ -266,15 +283,15 @@ public class Controller {
             }
             // change number of walls
             Player turn = this.board.getTurn();
-            Label player_info = (turn.getId() == 'U') ? player1info : player2info;
+            Label player_info = (turn.getId() == 'U') ? player1walls : player2walls;
             String info = player_info.getText().substring(0, player_info.getText().length() - 2);
             player_info.setText(info + "0" + turn.getWalls());
 
             this.board.turn();
             // todo: AI method shall be added
-            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
+//            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
 //                click(AI.turn(this.board));
-            }
+//            }
         } catch (InputMismatchException exception) {
             try { TimeUnit.MILLISECONDS.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
         }
@@ -369,9 +386,6 @@ public class Controller {
     @FXML protected AnchorPane load_pane;
     @FXML protected ListView<String> load_files;
     // load methods
-    @FXML
-    protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
-
     private void initializeLoad() {
         // initialize load files' list
         {
