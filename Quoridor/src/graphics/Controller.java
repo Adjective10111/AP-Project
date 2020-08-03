@@ -47,8 +47,12 @@ public class Controller {
 
     @FXML
     protected void gotoNewGame() throws IOException {
-        if (player1name.getText().equals(player2name.getText())) {
-            status.setText("The names should not match...");
+        if (player1name.getText().equals("") || player2name.getText().equals("")) {
+            status.setText("The names can NOT be empty");
+            return;
+        }
+        else if (player1name.getText().equals(player2name.getText())) {
+            status.setText("The names should NOT match");
             return;
         }
         // todo
