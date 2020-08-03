@@ -13,18 +13,19 @@ import java.util.Formatter;
 import java.util.Scanner;
 
 public class FileManager {
-    public static boolean save(Board board) {
+    public static void save(Board board) {
         Formatter savior;
         try {
             savior = new Formatter(System.getProperty("user.dir") + "/Quoridor/src/load/" +
                                            new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".csv");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return false;
+            return;
         }
 
-        savior.format("%s,%d\n", board.getPlayer1().getName(), board.getPlayer1().getWalls());
-        savior.format("%s,%d\n", board.getPlayer2().getName(), board.getPlayer2().getWalls());
+        savior.format("%s,%c,%d\n", board.getPlayer1().getName(), board.getPlayer1().getId(), board.getPlayer1().getWalls());
+        savior.format("%s,%c,%d\n", board.getPlayer2().getName(), board.getPlayer2().getId(), board.getPlayer2().getWalls());
+        savior.format("%d\n", (board.getTurn() == board.getPlayer1()) ? 1 : 2);
         int[][] matrix = board.getBoard();
         for (int[] row : matrix) {
             for (int cell : row)
@@ -33,7 +34,6 @@ public class FileManager {
         }
 
         savior.close();
-        return true;
     }
 
     public static ArrayList <String[]> load() {
@@ -68,7 +68,7 @@ public class FileManager {
         }
         String[] player1info = loader.nextLine().split(",");
         String[] player2info = loader.nextLine().split(",");
-        Board board = new Board(player1info, player2info);
+        Board board = new Board(player1info, player2info, Integer.parseInt(loader.nextLine()));
 
         for (int i = 0; i < 17; ++i) {
             String[] cells = loader.nextLine().split(",");

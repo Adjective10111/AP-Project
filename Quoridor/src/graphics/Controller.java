@@ -2,10 +2,13 @@ package graphics;
 
 import game.Board;
 import game.Player;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -33,9 +36,20 @@ public class Controller {
     @FXML
     protected void gotoMenu() throws IOException { play.gotoFXML("main menu.fxml"); }
     @FXML
-    protected void gotoNewGame() throws IOException { board = new Board(); gotoGame(); }
+    protected void gotoPlayerSettings() throws IOException {
+        play.gotoFXML("player settings.fxml");
 
-    private Board board = new Board();
+
+    }
+    @FXML
+    protected void gotoCup() throws IOException { play.gotoFXML("tournament menu.fxml"); }
+    @FXML
+    protected void gotoNewGame() throws IOException {
+        // board = new Board({name1, "U", walls}, {name2, "D", walls}, 1);
+        gotoGame();
+    }
+
+    private Board board;
     public void setBoard(Board board) { this.board = board; }
     // shall be changed game objects
     @FXML protected AnchorPane game_pane;
@@ -155,25 +169,6 @@ public class Controller {
         }
     }
     @FXML
-    protected void beadMover(MouseEvent event) {
-        int index = Integer.parseInt(((AnchorPane) event.getSource()).getId().substring(4));
-        int x = index % 100, y = index / 100;
-        try {
-            this.board.move(x, y);
-            // move the on-screen bead
-            AnchorPane clicked = (AnchorPane) event.getSource();
-            AnchorPane bead = (board.getTurn().getId() == 'U') ? bead1 : bead2;
-
-            bead.setLayoutX(clicked.getLayoutX());
-            bead.setLayoutY(clicked.getLayoutY());
-
-            win();
-            this.board.turn();
-        } catch (InputMismatchException exception) {
-            try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
-        }
-    }
-    @FXML
     protected void canMove(MouseEvent event) {
         int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
         int x = index % 100, y = index / 100;
@@ -202,14 +197,37 @@ public class Controller {
             id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
             id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
         }
-		if (board.canPlaceWall(x, y))
-			color += "cornflowerblue";
-		else
-        color += "orangered";
+        if (board.canPlaceWall(x, y))
+            color += "cornflowerblue";
+        else
+            color += "orangered";
 
         ((AnchorPane) event.getSource()).setStyle(color);
         play.getScene().lookup(id1).setStyle(color);
         play.getScene().lookup(id2).setStyle(color);
+    }
+    @FXML
+    protected void beadMover(MouseEvent event) {
+        int index = Integer.parseInt(((AnchorPane) event.getSource()).getId().substring(4));
+        int x = index % 100, y = index / 100;
+        try {
+            this.board.move(x, y);
+            // move the on-screen bead
+            AnchorPane clicked = (AnchorPane) event.getSource();
+            AnchorPane bead = (board.getTurn().getId() == 'U') ? bead1 : bead2;
+
+            bead.setLayoutX(clicked.getLayoutX());
+            bead.setLayoutY(clicked.getLayoutY());
+
+            win();
+            this.board.turn();
+            // todo: AI method shall be added
+            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
+//                click(AI.turn(this.board));
+            }
+        } catch (InputMismatchException exception) {
+            try { TimeUnit.MILLISECONDS.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
+        }
     }
     @FXML
     protected void placeWall(MouseEvent event) {
@@ -253,9 +271,23 @@ public class Controller {
             player_info.setText(info + "0" + turn.getWalls());
 
             this.board.turn();
+            // todo: AI method shall be added
+            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
+//                click(AI.turn(this.board));
+            }
         } catch (InputMismatchException exception) {
-            try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
+            try { TimeUnit.MILLISECONDS.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
         }
+    }
+    // clicks where the AI tells it to
+    private void click(int[] coordinates) {
+        String id = "#cell" + ((coordinates[0] < 10)? "0" + coordinates[0] : coordinates[0]) +
+                ((coordinates[1] < 10)? "0" + coordinates[1] : coordinates[1]);
+        AnchorPane cell = (AnchorPane) play.getScene().lookup(id);
+        // click on the cell
+        cell.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0,
+                                      0, 0, 0, MouseButton.PRIMARY, 1, true, true, true,
+                                      true, true, true, true, true, true, true, null));
     }
     @FXML // return to initial colors
     protected void baseColor(MouseEvent event) {
@@ -331,7 +363,7 @@ public class Controller {
             }
     }
     @FXML
-    protected void save() { FileManager.save(board); }
+    protected void save() { FileManager.save(this.board); }
 
     // shall be changed load object
     @FXML protected AnchorPane load_pane;
