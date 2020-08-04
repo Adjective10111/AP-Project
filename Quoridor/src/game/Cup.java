@@ -5,36 +5,48 @@ public class Cup {
     private int playercount;
     private int level = 1;
     private ArrayList<Player> players = new ArrayList<Player>();
-    private boolean skip_level = true;
-    private int levelcount = 0;
-    public Cup(int playercount, ArrayList players) {
-        for (int i = 1; playercount != 3 || playercount != 2 ; i++ ){
-            playercount = playercount / 2 ;
-            level++ ;
+    private int index = -2;
+    public Cup(ArrayList players) {
+
+    }
+    public Player[] play(ArrayList<Player> players){
+        if (players.size() % 2 != 0){
+            index += 2;
+                return new Player[]{players.get(index + 1), players.get(index + 2)};
+            }
+        else{
+            index += 2;
+                return new Player[]{players.get(index), players.get(index + 1)};
+            }
+        }
+    public void won(int winnerNumber){
+        if (players.size() % 2 != 0) {
+            if (winnerNumber == 1)
+                players.remove(index + 2);
+            else players.remove(index + 1);
+        }
+        else {
+            if (winnerNumber == 1)
+                players.remove(index + 1);
+            else players.remove(index);
         }
     }
-    public ArrayList<Player> play(ArrayList<Player> players){
+    public void next_level(){
         Collections.shuffle(players);
         if (players.size() % 2 != 0)
-            players.get(0).skip_level = true;
-        return players;
+              players.get(0).skip_level = true;
+        index = -2;
     }
-    public void cup(){
-        for (int i = 0 ; i <= level ; i++){
-
-            if (players.size() % 2 != 0){
-                for ( int j = 1; j < players.size() -1 ; j += 2){
-                    //players.get(i) players.get(i+1)
-
-                }
-            }
-            else{
-                for ( int j = 0; j < players.size() ; j += 2){
-                    //players.get(i) players.get(i+1)
-                }
-            }
+    public boolean level_finished(){
+        if (index >= players.size()){
+             return true;
         }
-
+        else return false;
+    }
+    public Player finished(){
+        if (players.size() == 1)
+            return players.get(0);
+        else return null;
     }
 
 }
