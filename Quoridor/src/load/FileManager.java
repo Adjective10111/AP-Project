@@ -6,21 +6,26 @@ import graphics.Controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
-import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Formatter;
+import java.util.Scanner;
 
 public class FileManager {
-    public static boolean save(Board board) {
+    public static void save(Board board) {
         Formatter savior;
         try {
-            savior = new Formatter(System.getProperty("user.dir") +
-                    "/load/" + Calendar.getInstance().getTime() + ".csv");
+            savior = new Formatter(System.getProperty("user.dir") + "/Quoridor/src/load/" +
+                    new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".csv");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return false;
+            return;
         }
 
-        savior.format("%s,%d\n", board.getPlayer1().getName(), board.getWall().getPlayer1_walls());
-        savior.format("%s,%d\n", board.getPlayer2().getName(), board.getWall().getPlayer2_walls());
+        savior.format("%s,%c,%d\n", board.getPlayer1().getName(), board.getPlayer1().getId(), board.getPlayer1().getWalls());
+        savior.format("%s,%c,%d\n", board.getPlayer2().getName(), board.getPlayer2().getId(), board.getPlayer2().getWalls());
+        savior.format("%d\n", (board.getTurn() == board.getPlayer1()) ? 1 : 2);
         int[][] matrix = board.getBoard();
         for (int[] row : matrix) {
             for (int cell : row)
@@ -29,7 +34,6 @@ public class FileManager {
         }
 
         savior.close();
-        return true;
     }
 
     public static ArrayList <String[]> load() {
@@ -37,18 +41,19 @@ public class FileManager {
         FilenameFilter csv_finder = (dir, name) -> name.toLowerCase().endsWith(".csv");
 
         File[] save_files = new File(System.getProperty("user.dir") + "/load").listFiles(csv_finder);
-        for (File save_file : Objects.requireNonNull(save_files)) {
-            String player1name = null, player2name = null;
-            try {
-                Scanner loader = new Scanner(save_file);
-                player1name = loader.nextLine().split(",")[0];
-                player2name = loader.nextLine().split(",")[0];
-                loader.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+        if (save_files != null)
+            for (File save_file : save_files) {
+                String player1name = null, player2name = null;
+                try {
+                    Scanner loader = new Scanner(save_file);
+                    player1name = loader.nextLine().split(",")[0];
+                    player2name = loader.nextLine().split(",")[0];
+                    loader.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                info.add(new String[] {save_file.getName(), player1name, player2name});
             }
-            info.add(new String[] {save_file.getName(), player1name, player2name});
-        }
 
         return info;
     }
@@ -63,7 +68,7 @@ public class FileManager {
         }
         String[] player1info = loader.nextLine().split(",");
         String[] player2info = loader.nextLine().split(",");
-        Board board = new Board(player1info, player2info);
+        Board board = new Board(player1info, player2info, Integer.parseInt(loader.nextLine()));
 
         for (int i = 0; i < 17; ++i) {
             String[] cells = loader.nextLine().split(",");
@@ -71,9 +76,9 @@ public class FileManager {
                 if (!cells[j].equals("0"))
                     board.setCell(i, j, Integer.parseInt(cells[j]));
         }
-        controller.setBoard(board);
-
         loader.close();
+
+        controller.setBoard(board);
         return true;
     }
 }
