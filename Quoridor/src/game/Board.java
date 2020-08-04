@@ -1,5 +1,7 @@
 package game;
 
+import graphics.Play;
+
 import java.util.Arrays;
 import java.util.InputMismatchException;
 
@@ -15,40 +17,29 @@ public class Board{
     Player turn;
     Wall wall = new Wall();
 
-    public Board(){
+    public Board(String[] player1info, String[] player2info, int turn) {
         for(int[] ints : board)
             Arrays.fill(ints,EMPTY);
-        board[0][8] = 1;
-        board[16][8] = 2;
-        player1 = new Player('U');
-        player2 = new Player('D');
-        turn = player1;
-    }
-    public Board(String[] player1info, String[] player2info) {
-        for(int[] ints : board)
-            Arrays.fill(ints,EMPTY);
-        player1 = new Player(player1info[0], Integer.parseInt(player1info[1]));
-        player2 = new Player(player2info[0], Integer.parseInt(player2info[1]));
+        player1 = new Player(player1info[0], player1info[1].charAt(0), Integer.parseInt(player1info[2]));
+        player2 = new Player(player2info[0], player2info[1].charAt(0), Integer.parseInt(player2info[2]));
+        if (turn == 1)
+            this.turn = player1;
+        else
+            this.turn = player2;
     }
 
     public int[][] getBoard() { return board; }
     public Player getTurn() { return turn; }
     public Player getPlayer1() { return player1; }
     public Player getPlayer2() { return player2; }
-    public Wall getWall() { return wall; }
+    public void setPlayer1(Player player) { this.player1 = player; }
+    public void setPlayer2(Player player) { this.player2 = player; }
     public void setCell(int y, int x, int value) {
         board[y][x] = value;
         if (value == 1)
             player1.setBead(y, x);
         else if (value == 2)
             player2.setBead(y, x);
-    }
-
-    public void turn() {
-        if (this.turn == player1)
-            turn = player2;
-        else
-            turn = player1;
     }
 
     public void move(int x, int y) throws InputMismatchException {
@@ -59,19 +50,17 @@ public class Board{
             board[turn.bead.getY()][turn.bead.getX()] = (turn.id == 'U')? PLAYER1_CELL : PLAYER2_CELL;
         }
         else
-            throw new InputMismatchException("invalid place");
-
-        turn();
+            throw new InputMismatchException("INVALID PLACE");
     }
 
     public boolean canMove(int x, int y) {
         int opponent_cell = turn.getId() == 'U' ? 2 : 1;
         return (Math.abs(turn.bead.getX() - x) == 2 && turn.bead.getY() == y && board[y][(turn.bead.getX() + x) / 2] == EMPTY) ||
-               (Math.abs(turn.bead.getY() - y) == 2 && turn.bead.getX() == x && board[(turn.bead.getY() + y) / 2][x] == EMPTY) ||
-               (Math.abs(turn.bead.getX() - x) == 4 && turn.bead.getY() == y && board[y][(turn.bead.getX() + x) / 2] == opponent_cell && board[y][(((turn.bead.getX() + x) / 2) + turn.bead.getX()) / 2] == EMPTY && board[y][(((turn.bead.getX() + x) / 2) + x) / 2] == EMPTY) ||
-               (Math.abs(turn.bead.getY() - y) == 4 && turn.bead.getX() == x && board[(turn.bead.getY() + y) / 2][x] == opponent_cell && board[(((turn.bead.getY() + y) / 2) + turn.bead.getY()) / 2][x] == EMPTY && board[(((turn.bead.getY() + y) / 2) + y) / 2][x] == EMPTY) ||
-               (Math.abs(turn.bead.getX() - x) == 2 && Math.abs(turn.bead.getY() - y) == 2 && board[y][turn.bead.getX()] == opponent_cell && board[(turn.bead.getY() + y) / 2][turn.bead.getX()] == EMPTY && board[y][(turn.bead.getX() + x) / 2] == EMPTY) ||
-               (Math.abs(turn.bead.getX() - x) == 2 && Math.abs(turn.bead.getY() - y) == 2 && board[turn.bead.getY()][x] == opponent_cell && board[turn.bead.getY()][(turn.bead.getX() + x) / 2] == EMPTY && board[(turn.bead.getY() + y) / 2][x] == EMPTY);
+                (Math.abs(turn.bead.getY() - y) == 2 && turn.bead.getX() == x && board[(turn.bead.getY() + y) / 2][x] == EMPTY) ||
+                (Math.abs(turn.bead.getX() - x) == 4 && turn.bead.getY() == y && board[y][(turn.bead.getX() + x) / 2] == opponent_cell && board[y][(((turn.bead.getX() + x) / 2) + turn.bead.getX()) / 2] == EMPTY && board[y][(((turn.bead.getX() + x) / 2) + x) / 2] == EMPTY) ||
+                (Math.abs(turn.bead.getY() - y) == 4 && turn.bead.getX() == x && board[(turn.bead.getY() + y) / 2][x] == opponent_cell && board[(((turn.bead.getY() + y) / 2) + turn.bead.getY()) / 2][x] == EMPTY && board[(((turn.bead.getY() + y) / 2) + y) / 2][x] == EMPTY) ||
+                (Math.abs(turn.bead.getX() - x) == 2 && Math.abs(turn.bead.getY() - y) == 2 && board[y][turn.bead.getX()] == opponent_cell && board[(turn.bead.getY() + y) / 2][turn.bead.getX()] == EMPTY && board[y][(turn.bead.getX() + x) / 2] == EMPTY) ||
+                (Math.abs(turn.bead.getX() - x) == 2 && Math.abs(turn.bead.getY() - y) == 2 && board[turn.bead.getY()][x] == opponent_cell && board[turn.bead.getY()][(turn.bead.getX() + x) / 2] == EMPTY && board[(turn.bead.getY() + y) / 2][x] == EMPTY);
 
     }
 
@@ -90,10 +79,10 @@ public class Board{
                 board[y + 2][x] = WALL;
             }
             else
-                throw new InputMismatchException("invalid place");
+                throw new InputMismatchException("Can NOT place it here");
         }
         else
-            throw new InputMismatchException("invalid place");
+            throw new InputMismatchException("Can NOT place it here");
     }
 
     public boolean canPlaceWall(int x, int y) {
@@ -101,7 +90,7 @@ public class Board{
     }
 
     public Player win() {
-        if (turn.id == 'D') {
+        if (turn.id == 'U') {
             for (int cell : board[16]) {
                 if (cell == 1)
                     return player1;
@@ -113,5 +102,12 @@ public class Board{
             }
         }
         return null;
+    }
+
+    public void turn() {
+        if (this.turn == player1)
+            turn = player2;
+        else
+            turn = player1;
     }
 }
