@@ -1,7 +1,6 @@
 package game;
 
 import graphics.Play;
-
 import java.util.Arrays;
 import java.util.InputMismatchException;
 
@@ -102,6 +101,23 @@ public class Board{
             }
         }
         return null;
+    }
+
+    public void undoMove(int x, int y) {
+        if (y % 2 == 0 && x % 2 == 0)
+            board[y][x] = EMPTY;
+        else if (y % 2 == 0 && x % 2 == 1 && x <16 && y < 15){
+            board[y][x] = EMPTY;
+            board[y + 1][x] = EMPTY;
+            board[y + 2][x] = EMPTY;
+            wall.undoPlaceWall(x, y);
+        }
+        else if  (y % 2 == 1 && x % 2 == 0 && x <15 && y < 16) {
+            board[y][x] = EMPTY;
+            board[y][x + 1] = EMPTY;
+            board[y][x + 2] = EMPTY;
+            wall.undoPlaceWall(x, y);
+        }
     }
 
     public void turn() {

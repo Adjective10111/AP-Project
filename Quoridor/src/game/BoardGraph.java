@@ -29,7 +29,6 @@ class BoardGraph {
             graph.addEdge("V" + "8" + j, "V" + "8" + (j + 1));
     }
 
-
     public boolean isPathExist(Player player, Graph<String, DefaultEdge> clonedGraph) {
         int row = player.getBead().getY() / 2;
         int column = player.getBead().getX() / 2;
@@ -62,6 +61,24 @@ class BoardGraph {
             j = (x - 1) / 2;
             graph.removeEdge("V" + i + j, "V" + i + (j + 1));
             graph.removeEdge("V" + (i + 1) + j, "V" + (i + 1) + (j + 1));
+        }
+    }
+
+    public void undoRemoveEdges(int x, int y) {
+        int i, j;
+        //remove edges when place horizontal wall
+        if (y % 2 == 1 && x % 2 == 0) {
+            i = (y - 1) / 2;
+            j = x / 2;
+            graph.addEdge("V" + i + j, "V" + (i + 1) + j);
+            graph.addEdge("V" + i + (j + 1), "V" + (i + 1) + (j + 1));
+        }
+        //remove edges when place vertical wall
+        else if (y % 2 == 0 && x % 2 == 1) {
+            i = y / 2;
+            j = (x - 1) / 2;
+            graph.addEdge("V" + i + j, "V" + i + (j + 1));
+            graph.addEdge("V" + (i + 1) + j, "V" + (i + 1) + (j + 1));
         }
     }
 

@@ -4,7 +4,7 @@ public class Player {
     char id;
     String name = "No name";
     Bead bead;
-    int walls = 10;
+    int walls;
 
     public char getId() { return this.id; }
     public String getName() { return this.name; }
