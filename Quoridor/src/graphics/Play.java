@@ -1,10 +1,6 @@
 package graphics;
 
-import game.Board;
 import javafx.application.Application;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,10 +22,11 @@ public class Play extends Application {
 
     public void start() throws IOException {
         scene = new Scene(new AnchorPane(), 520, 600);
-        gotoFXML("mainMenu.fxml");
+        gotoFXML("main menu.fxml");
         primaryStage.setTitle("Quoridor Game");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.jfif")));
         primaryStage.setScene(this.scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
