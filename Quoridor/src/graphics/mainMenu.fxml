@@ -10,17 +10,17 @@
             <Font name="Bookman Old Style" size="40.0" />
         </font>
     </Label>
-    <Button fx:id="NewGame" layoutX="201.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#gotoNewGame" prefWidth="119.0" text="New Game">
+    <Button layoutX="201.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#gotoGameModes" prefWidth="119.0" text="New Game">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
-    <Button fx:id="LoadGame" layoutX="201.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#gotoLoad" text="Load Game">
+    <Button layoutX="201.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#gotoLoad" text="Load Game">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
-    <Button fx:id="LoadGame1" layoutX="201.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#Exit" prefWidth="119.0" text="Exit">
+    <Button layoutX="201.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#Exit" prefWidth="119.0" text="Exit">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
