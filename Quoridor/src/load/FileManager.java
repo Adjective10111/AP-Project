@@ -1,6 +1,7 @@
 package load;
 
 import game.Board;
+import game.Player;
 import graphics.Controller;
 
 import java.io.File;
@@ -68,7 +69,9 @@ public class FileManager {
         }
         String[] player1info = loader.nextLine().split(",");
         String[] player2info = loader.nextLine().split(",");
-        Board board = new Board(player1info, player2info, Integer.parseInt(loader.nextLine()));
+        Board board = new Board(new Player(player1info[0], player1info[1].charAt(0), Integer.parseInt(player1info[2])),
+                                new Player(player2info[0], player2info[1].charAt(0), Integer.parseInt(player2info[2])),
+                                Integer.parseInt(loader.nextLine()));
 
         for (int i = 0; i < 17; ++i) {
             String[] cells = loader.nextLine().split(",");

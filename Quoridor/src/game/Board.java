@@ -11,17 +11,17 @@ public class Board{
     private final int PLAYER2_CELL = 2;
     private final int WALL = 11;
 
-    private int[][] board = new int[17][17];
+    private final int[][] board = new int[17][17];
     Player player1;
     Player player2;
     Player turn;
     Wall wall = new Wall();
 
-    public Board(String[] player1info, String[] player2info, int turn) {
+    public Board(Player player1, Player player2, int turn) {
         for(int[] ints : board)
             Arrays.fill(ints,EMPTY);
-        player1 = new Player(player1info[0], player1info[1].charAt(0), Integer.parseInt(player1info[2]));
-        player2 = new Player(player2info[0], player2info[1].charAt(0), Integer.parseInt(player2info[2]));
+        this.player1 = player1;
+        this.player2 = player2;
         if (turn == 1)
             this.turn = player1;
         else
