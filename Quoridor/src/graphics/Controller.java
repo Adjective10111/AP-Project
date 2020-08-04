@@ -2,13 +2,14 @@ package graphics;
 
 import game.Board;
 import game.Player;
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import load.FileManager;
 
@@ -16,33 +17,77 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.concurrent.TimeUnit;
 
 public class Controller {
     private Play play;
-    private Board board;
-    public void setPlay(Play play) {
-        this.play = play;
+    public void setPlay(Play play) { this.play = play; }
+    // menu methods
+    @FXML
+    protected void gotoGameModes() throws IOException { play.gotoFXML("game modes.fxml"); }
+    @FXML
+    protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
+    @FXML
+    protected void Exit() { play.getPrimaryStage().close(); }
+
+    // game modes gotos
+    @FXML
+    protected void gotoMenu() throws IOException { play.gotoFXML("main menu.fxml"); }
+    @FXML
+    protected void gotoPlayerSettings() throws IOException { play.gotoFXML("player settings.fxml"); }
+    @FXML
+    protected void gotoCup() throws IOException { play.gotoFXML("tournament menu.fxml"); }
+
+    // player settings
+    @FXML protected TextField player1name;
+    @FXML protected TextField player2name;
+    @FXML protected ToggleButton bot1;
+    @FXML protected ToggleButton bot2;
+    @FXML protected Label status;
+
+    @FXML
+    protected void gotoNewGame() throws IOException {
+        if (player1name.getText().equals("") || player2name.getText().equals("")) {
+            status.setText("The names can NOT be empty");
+            return;
+        }
+        else if (player1name.getText().equals(player2name.getText())) {
+            status.setText("The names should NOT match");
+            return;
+        }
+        // todo
+//        if (bot1.isSelected()) {
+//            board.setPlayer1(new AI());
+//            player1name.setText(player1name.getText() + " (BOT)");
+//        }
+//        if (bot2.isSelected()) {
+//            board.setPlayer2(new AI());
+//            player2name.setText(player2name.getText() + " (BOT)");
+//        }
+
+        board = new Board(new String[] {player1name.getText(), "U", "10"},
+                new String[] {player2name.getText(), "D", "10"}, 1);
+        gotoGame();
     }
+    @FXML
+    protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
+
+    private Board board;
     public void setBoard(Board board) { this.board = board; }
     // shall be changed game objects
-    @FXML protected AnchorPane game_pane;
     @FXML protected Label player1info;
+    @FXML protected Label player1walls;
     @FXML protected Label player2info;
+    @FXML protected Label player2walls;
     @FXML protected AnchorPane table;
     @FXML protected AnchorPane bead1;
     @FXML protected AnchorPane bead2;
     // game methods
-    @FXML
-    protected void gotoNewGame() throws IOException { play.gotoFXML("game.fxml"); board = new Board(); initializeGame(); }
-    @FXML
-    protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
-
     protected void initializeGame() {
         // creating the board
         table = (AnchorPane)(play.getScene().lookup("#table"));
-        game_pane = (AnchorPane)(play.getScene().lookup("#game_pane"));
         final double NARROW = 10, THICK = 40;
-
+        // initialize cells
         int y = 0;
         for (int i = 0; i < 17; ++i) {
             int x = 0;
@@ -60,27 +105,25 @@ public class Controller {
                 }
                 if (j % 2 == 0) {
                     if (i % 2 == 0)
-                        cell.setStyle("-fx-background-color: maroon");
+                        cell.setStyle("-fx-background-color: slategrey");
                     else
-                        cell.setStyle("-fx-background-color: chocolate");
+                        cell.setStyle("-fx-background-color: firebrick");
                     cell.setPrefWidth(THICK);
                     x += THICK;
                 }
                 else {
-                    if (i % 2 == 1)
-                        cell.setStyle("-fx-background-color: firebrick");
-                    else
-                        cell.setStyle("-fx-background-color: chocolate");
+                    cell.setStyle("-fx-background-color: firebrick");
                     cell.setPrefWidth(NARROW);
                     x += NARROW;
                 }
                 // add functionality
-                cell.setOnMouseClicked(this::BeadMover);
                 if (((j % 2 == 0 && i % 2 == 1) || (j % 2 == 1 && i % 2 == 0)) && i != 16 && j != 16) {
+                    cell.setOnMouseClicked(this::placeWall);
                     cell.setOnMouseEntered(this::canPlace);
                     cell.setOnMouseExited(this::baseColor);
                 }
-                else if (cell.getStyle().equals("-fx-background-color: maroon")) {
+                else if (cell.getStyle().equals("-fx-background-color: slategrey")) {
+                    cell.setOnMouseClicked(this::beadMover);
                     cell.setOnMouseEntered(this::canMove);
                     cell.setOnMouseExited(this::baseColor);
                 }
@@ -113,61 +156,38 @@ public class Controller {
             bead1.setStyle("-fx-background-size: 40 40;" +
                     "-fx-background-radius: 40;" +
                     "-fx-border-radius: 40;" +
-                    "-fx-background-color: royalblue");
+                    "-fx-background-color: black");
 
             bead2.setStyle("-fx-background-size: 40 40;" +
                     "-fx-background-radius: 40;" +
                     "-fx-border-radius: 40;" +
-                    "-fx-background-color: limegreen");
+                    "-fx-background-color: white");
             // add to the table
             table.getChildren().addAll(bead1, bead2);
         }
         // initialize the labels
+        player1info = (Label) (play.getScene().lookup("#player1info"));
+        player2info = (Label) (play.getScene().lookup("#player2info"));
+        player1walls = (Label) (play.getScene().lookup("#player1walls"));
+        player2walls = (Label) (play.getScene().lookup("#player2walls"));
         {
+            // Align the names
+            String name1 = board.getPlayer1().getName(), name2 = board.getPlayer2().getName();
+            while (name1.length() < name2.length())
+                name1 += " ";
+            while (name2.length() < name1.length())
+                name2 += " ";
             // initialize player1's label
-            player1info = new Label(board.getPlayer1().getName() + '\t' + "Remaining Walls: " + board.getWall().getPlayer1_walls());
-            player1info.setId("player1info");
-            player1info.setTextFill(Color.ROYALBLUE);
-            player1info.setLayoutY(0);
-            player1info.setPrefSize(520, 45);
+            player1info.setText(name1);
+            player1walls.setText("Remaining Walls: " + board.getPlayer1().getWalls());
+            player1info.setTextFill(Color.BLACK);
+            player1walls.setTextFill(Color.BLACK);
             // initialize player2's label
-            player2info = new Label(board.getPlayer2().getName() + '\t' + "Remaining Walls: " + board.getWall().getPlayer2_walls());
-            player2info.setId("player2info");
-            player2info.setTextFill(Color.LIMEGREEN);
-            player2info.setLayoutY(45);
-            player2info.setPrefSize(520, 45);
-            // add to scene
-            game_pane.getChildren().addAll(player1info, player2info);
+            player2info.setText(name2);
+            player2walls.setText("Remaining Walls: " + board.getPlayer2().getWalls());
+            player2info.setTextFill(Color.DARKGREY);
+            player2walls.setTextFill(Color.DARKGREY);
         }
-    }
-    @FXML
-    protected void BeadMover(MouseEvent event) {
-        int index = Integer.parseInt(((AnchorPane) event.getSource()).getId().substring(4));
-        int x = index % 100, y = index / 100;
-        try {
-            this.board.move(x, y);
-            // move the on-screen bead
-            AnchorPane clicked = (AnchorPane) event.getSource();
-            AnchorPane bead = (board.getTurn().getId() == 'U') ? bead2 : bead1;
-
-            bead.setLayoutX(clicked.getLayoutX());
-            bead.setLayoutY(clicked.getLayoutY());
-        } catch (InputMismatchException exception) {
-            // get label's current status
-            Label player_info = (board.getTurn().getId() == 'U') ? player1info : player2info;
-            String info = player_info.getText();
-            Paint textFill = player_info.getTextFill();
-            // change it
-            player_info.setFont(new Font(player_info.getFont().getStyle(), 20));
-            player_info.setTextFill(Color.RED);
-            player_info.setText(exception.getMessage().toUpperCase());
-            // wait and return to previous status
-            try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
-            player_info.setFont(new Font(player_info.getFont().getStyle(), 16));
-            player_info.setTextFill(textFill);
-            player_info.setText(info);
-        }
-        win();
     }
     @FXML
     protected void canMove(MouseEvent event) {
@@ -175,9 +195,9 @@ public class Controller {
         int x = index % 100, y = index / 100;
         if (board.canMove(x, y))
             if (board.getTurn().getId() == 'U')
-                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: deepskyblue");
+                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: darkgrey");
             else
-                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: lawngreen");
+                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: floralwhite");
         else
             ((AnchorPane) event.getSource()).setStyle("-fx-background-color: red");
     }
@@ -198,24 +218,47 @@ public class Controller {
             id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
             id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
         }
-        // todo: merge the function
-		if (board.canPlaceWall(x, y))
-			color += "cornflowerblue";
-		else
-        color += "orangered";
+        if (board.canPlaceWall(x, y))
+            color += "cornflowerblue";
+        else
+            color += "orangered";
 
         ((AnchorPane) event.getSource()).setStyle(color);
         play.getScene().lookup(id1).setStyle(color);
         play.getScene().lookup(id2).setStyle(color);
     }
-    @FXML // return to initial colors
-    protected void baseColor(MouseEvent event) {
-        int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
+    @FXML
+    protected void beadMover(MouseEvent event) {
+        int index = Integer.parseInt(((AnchorPane) event.getSource()).getId().substring(4));
         int x = index % 100, y = index / 100;
-        if (x % 2 == 0 && y % 2 == 0)
-            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: maroon");
-        else {
-            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: chocolate");
+        try {
+            this.board.move(x, y);
+            // move the on-screen bead
+            AnchorPane clicked = (AnchorPane) event.getSource();
+            AnchorPane bead = (board.getTurn().getId() == 'U') ? bead1 : bead2;
+
+            bead.setLayoutX(clicked.getLayoutX());
+            bead.setLayoutY(clicked.getLayoutY());
+
+            win();
+            this.board.turn();
+            // todo: AI method shall be added
+//            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
+//                click(AI.turn(this.board));
+//            }
+        } catch (InputMismatchException exception) {
+            try { TimeUnit.MILLISECONDS.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
+        }
+    }
+    @FXML
+    protected void placeWall(MouseEvent event) {
+        AnchorPane wall_space = (AnchorPane) event.getSource();
+        int index = Integer.parseInt(wall_space.getId().substring(4));
+        int x = index % 100, y = index / 100;
+        try {
+            this.board.placeWall(x, y);
+            // change the on-screen wall
+            wall_space.setStyle("-fx-background-color: khaki");
             String id1 = "#cell";
             String id2 = "#cell";
             if (y % 2 == 1) {
@@ -228,8 +271,83 @@ public class Controller {
                 id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
                 id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
             }
-            play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
-            play.getScene().lookup(id2).setStyle("-fx-background-color: chocolate");
+            play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
+            play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+            // removing listeners
+            {
+                wall_space.setOnMouseExited(null);
+                wall_space.setOnMouseEntered(null);
+                wall_space.setOnMouseClicked(null);
+                play.getScene().lookup(id1).setOnMouseExited(null);
+                play.getScene().lookup(id1).setOnMouseEntered(null);
+                play.getScene().lookup(id1).setOnMouseClicked(null);
+                play.getScene().lookup(id2).setOnMouseExited(null);
+                play.getScene().lookup(id2).setOnMouseEntered(null);
+                play.getScene().lookup(id2).setOnMouseClicked(null);
+            }
+            // change number of walls
+            Player turn = this.board.getTurn();
+            Label player_info = (turn.getId() == 'U') ? player1walls : player2walls;
+            String info = player_info.getText().substring(0, player_info.getText().length() - 2);
+            player_info.setText(info + "0" + turn.getWalls());
+
+            this.board.turn();
+            // todo: AI method shall be added
+//            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
+//                click(AI.turn(this.board));
+//            }
+        } catch (InputMismatchException exception) {
+            try { TimeUnit.MILLISECONDS.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
+        }
+    }
+    // clicks where the AI tells it to
+    private void click(int[] coordinates) {
+        String id = "#cell" + ((coordinates[0] < 10)? "0" + coordinates[0] : coordinates[0]) +
+                ((coordinates[1] < 10)? "0" + coordinates[1] : coordinates[1]);
+        AnchorPane cell = (AnchorPane) play.getScene().lookup(id);
+        // click on the cell
+        cell.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0,
+                0, 0, 0, MouseButton.PRIMARY, 1, true, true, true,
+                true, true, true, true, true, true, true, null));
+    }
+    @FXML // return to initial colors
+    protected void baseColor(MouseEvent event) {
+        int index = Integer.parseInt(((AnchorPane)event.getSource()).getId().substring(4));
+        int x = index % 100, y = index / 100;
+        if (x % 2 == 0 && y % 2 == 0)
+            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: slategrey");
+        else if (!((AnchorPane) event.getSource()).getStyle().equals("-fx-background-color: khaki")) {
+            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: firebrick");
+            String id1 = "#cell";
+            String id2 = "#cell";
+            if (y % 2 == 1) {
+                String y_value = ((y < 10) ? "0" + y : y).toString();
+                id1 += y_value + ((x + 1 < 10) ? "0" + (x + 1) : x + 1);
+                id2 += y_value + ((x + 2 < 10) ? "0" + (x + 2) : x + 2);
+                if (board.getBoard()[y][x + 1] != 11)
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
+                else
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
+
+                if (board.getBoard()[y][x + 2] != 11)
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: firebrick");
+                else
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+            }
+            else {
+                String x_value = ((x < 10) ? "0" + x : x).toString();
+                id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
+                id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
+                if (board.getBoard()[y + 1][x] != 11)
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
+                else
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
+
+                if (board.getBoard()[y + 2][x] != 11)
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: firebrick");
+                else
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+            }
         }
     }
     // do the winner stuff
@@ -250,9 +368,9 @@ public class Controller {
             loser_info = player1info;
         }
 
-        winner_info.setFont(new Font(winner_info.getFont().getStyle(), 20));
+        winner_info.setFont(new Font("Segoe UI Semibold", 20));
         winner_info.setText("You Won!!");
-        loser_info.setFont(new Font(loser_info.getFont().getStyle(), 20));
+        loser_info.setFont(new Font("Segoe UI Semibold", 20));
         loser_info.setText("You Lost :)");
 
         for (int i = 0; i < 17; ++i)
@@ -266,21 +384,30 @@ public class Controller {
             }
     }
     @FXML
-    protected void save() { FileManager.save(board); }
+    protected void save() { FileManager.save(this.board); }
 
     // shall be changed load object
+    @FXML protected AnchorPane load_pane;
     @FXML protected ListView<String> load_files;
     // load methods
-    @FXML
-    protected void gotoLoad() throws IOException { play.gotoFXML("load.fxml"); initializeLoad(); }
-
     private void initializeLoad() {
-        load_files = (ListView<String>) play.getScene().lookup("#load_files");
-        ArrayList<String[]> files = FileManager.load();
+        // initialize load files' list
+        {
+            load_pane = (AnchorPane)(play.getScene().lookup("#load_pane"));
 
+            load_files = new ListView<>();
+            load_files.setPrefSize(390, 400);
+            load_files.setLayoutX(65);
+            load_files.setLayoutY(185);
+
+            load_pane.getChildren().add(load_files);
+        }
+        // get files' names
+        ArrayList<String[]> files = FileManager.load();
+        // add them to the list
         for (String[] details : files)
             load_files.getItems().add(details[1] + '\t' + details[2] + '\t' + details[0]);
-
+        // set a listener for the items
         load_files.setOnMouseClicked(event -> {
             String file_name = load_files.getSelectionModel().getSelectedItem().split("\t")[2];
             if (FileManager.load(new File(System.getProperty("user.dir") + "/load/" + file_name + ".csv"), this))
@@ -293,11 +420,4 @@ public class Controller {
                 System.out.println("Something went wrong");
         });
     }
-
-    // menu methods
-    @FXML
-    protected void gotoMenu() throws IOException { play.gotoFXML("mainMenu.fxml"); }
-
-    @FXML
-    protected void Exit() { play.getPrimaryStage().close(); }
 }
