@@ -26,14 +26,15 @@
     <TextField fx:id="player1name" layoutX="14.0" layoutY="196.0" prefHeight="33.0" prefWidth="367.0" text="1st Player" />
     <TextField fx:id="player2name" layoutX="14.0" layoutY="236.0" prefHeight="33.0" prefWidth="367.0" text="2nd Player" />
     <!--todo: bot buttons are here-->
-    <ToggleButton fx:id="bot1" layoutX="402.0" layoutY="196.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="Bot" />
-    <ToggleButton fx:id="bot2" layoutX="402.0" layoutY="236.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="Bot" />
+<!--    <ToggleButton fx:id="bot1" layoutX="402.0" layoutY="196.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="Bot" />-->
+<!--    <ToggleButton fx:id="bot2" layoutX="402.0" layoutY="236.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="Bot" />-->
+
+<!--    <ChoiceBox fx:id="bot1difficulty" layoutX="456.0" layoutY="196.0" prefHeight="33.0" prefWidth="50.0" />-->
+<!--    <ChoiceBox fx:id="bot2difficulty" layoutX="456.0" layoutY="236.0" prefHeight="33.0" prefWidth="50.0" />-->
 
     <Label fx:id="status" alignment="CENTER" layoutX="14.0" layoutY="548.0" prefHeight="33.0" prefWidth="367.0" textAlignment="CENTER" textFill="RED">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Label>
-   <ChoiceBox fx:id="bot1difficulty" layoutX="456.0" layoutY="196.0" prefHeight="33.0" prefWidth="50.0" />
-   <ChoiceBox fx:id="bot2difficulty" layoutX="456.0" layoutY="236.0" prefHeight="33.0" prefWidth="50.0" />
 </AnchorPane>
