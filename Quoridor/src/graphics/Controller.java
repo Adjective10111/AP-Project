@@ -1,5 +1,6 @@
 package graphics;
 
+import game.AI;
 import game.Board;
 import game.Cup;
 import game.Player;
@@ -57,18 +58,21 @@ public class Controller {
             status.setText("The names should NOT match");
             return;
         }
-        // todo
-//        if (bot1.isSelected()) {
-//            board.setPlayer1(new AI());
-//            player1name.setText(player1name.getText() + " (BOT)");
-//        }
-//        if (bot2.isSelected()) {
-//            board.setPlayer2(new AI());
-//            player2name.setText(player2name.getText() + " (BOT)");
-//        }
+        Player player1, player2;
+        if (bot1.isSelected()) {
+            player1name.setText(player1name.getText() + " (BOT)");
+            player1 = new AI(player1name.getText(), 'U', 10);
+        }
+        else
+            player1 = new Player(player1name.getText(), 'U', 10);
+        if (bot2.isSelected()) {
+            player2name.setText(player2name.getText() + " (BOT)");
+            player2 = new AI(player2name.getText(), 'D', 10);
+        }
+        else
+            player2 = new Player(player2name.getText(), 'D', 10);
 
-        board = new Board(new Player(player1name.getText(), 'U', 10),
-                          new Player(player2name.getText(), 'D', 10), 1);
+        board = new Board(player1, player2, 1);
         gotoGame();
         cup_is_on = false;
     }
@@ -281,10 +285,9 @@ public class Controller {
 
             win();
             this.board.turn();
-            // todo: AI method shall be added
-//            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
-//                click(AI.turn(this.board));
-//            }
+
+            if (board.getTurn().getClass().getSimpleName().equals("AI"))
+                click(((AI)board.getTurn()).findBestMove(this.board));
         } catch (InputMismatchException exception) {
             try { TimeUnit.MILLISECONDS.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
         }
@@ -331,10 +334,9 @@ public class Controller {
             player_info.setText(info + "0" + turn.getWalls());
 
             this.board.turn();
-            // todo: AI method shall be added
-//            if (board.getTurn().getClass().getSimpleName().equals("AI")) {
-//                click(AI.turn(this.board));
-//            }
+
+            if (board.getTurn().getClass().getSimpleName().equals("AI"))
+                click(((AI)board.getTurn()).findBestMove(this.board));
         } catch (InputMismatchException exception) {
             try { TimeUnit.MILLISECONDS.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
         }
