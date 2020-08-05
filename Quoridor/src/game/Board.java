@@ -11,17 +11,17 @@ public class Board{
     private final int PLAYER2_CELL = 2;
     private final int WALL = 11;
 
-    private int[][] board = new int[17][17];
+    private final int[][] board = new int[17][17];
     Player player1;
     Player player2;
     Player turn;
     Wall wall = new Wall();
 
-    public Board(String[] player1info, String[] player2info, int turn) {
+    public Board(Player player1, Player player2, int turn) {
         for(int[] ints : board)
             Arrays.fill(ints,EMPTY);
-        player1 = new Player(player1info[0], player1info[1].charAt(0), Integer.parseInt(player1info[2]));
-        player2 = new Player(player2info[0], player2info[1].charAt(0), Integer.parseInt(player2info[2]));
+        this.player1 = player1;
+        this.player2 = player2;
         if (turn == 1)
             this.turn = player1;
         else
@@ -56,11 +56,11 @@ public class Board{
     public boolean canMove(int x, int y) {
         int opponent_cell = turn.getId() == 'U' ? 2 : 1;
         return (Math.abs(turn.bead.getX() - x) == 2 && turn.bead.getY() == y && board[y][(turn.bead.getX() + x) / 2] == EMPTY) ||
-               (Math.abs(turn.bead.getY() - y) == 2 && turn.bead.getX() == x && board[(turn.bead.getY() + y) / 2][x] == EMPTY) ||
-               (Math.abs(turn.bead.getX() - x) == 4 && turn.bead.getY() == y && board[y][(turn.bead.getX() + x) / 2] == opponent_cell && board[y][(((turn.bead.getX() + x) / 2) + turn.bead.getX()) / 2] == EMPTY && board[y][(((turn.bead.getX() + x) / 2) + x) / 2] == EMPTY) ||
-               (Math.abs(turn.bead.getY() - y) == 4 && turn.bead.getX() == x && board[(turn.bead.getY() + y) / 2][x] == opponent_cell && board[(((turn.bead.getY() + y) / 2) + turn.bead.getY()) / 2][x] == EMPTY && board[(((turn.bead.getY() + y) / 2) + y) / 2][x] == EMPTY) ||
-               (Math.abs(turn.bead.getX() - x) == 2 && Math.abs(turn.bead.getY() - y) == 2 && board[y][turn.bead.getX()] == opponent_cell && board[(turn.bead.getY() + y) / 2][turn.bead.getX()] == EMPTY && board[y][(turn.bead.getX() + x) / 2] == EMPTY) ||
-               (Math.abs(turn.bead.getX() - x) == 2 && Math.abs(turn.bead.getY() - y) == 2 && board[turn.bead.getY()][x] == opponent_cell && board[turn.bead.getY()][(turn.bead.getX() + x) / 2] == EMPTY && board[(turn.bead.getY() + y) / 2][x] == EMPTY);
+                (Math.abs(turn.bead.getY() - y) == 2 && turn.bead.getX() == x && board[(turn.bead.getY() + y) / 2][x] == EMPTY) ||
+                (Math.abs(turn.bead.getX() - x) == 4 && turn.bead.getY() == y && board[y][(turn.bead.getX() + x) / 2] == opponent_cell && board[y][(((turn.bead.getX() + x) / 2) + turn.bead.getX()) / 2] == EMPTY && board[y][(((turn.bead.getX() + x) / 2) + x) / 2] == EMPTY) ||
+                (Math.abs(turn.bead.getY() - y) == 4 && turn.bead.getX() == x && board[(turn.bead.getY() + y) / 2][x] == opponent_cell && board[(((turn.bead.getY() + y) / 2) + turn.bead.getY()) / 2][x] == EMPTY && board[(((turn.bead.getY() + y) / 2) + y) / 2][x] == EMPTY) ||
+                (Math.abs(turn.bead.getX() - x) == 2 && Math.abs(turn.bead.getY() - y) == 2 && board[y][turn.bead.getX()] == opponent_cell && board[(turn.bead.getY() + y) / 2][turn.bead.getX()] == EMPTY && board[y][(turn.bead.getX() + x) / 2] == EMPTY) ||
+                (Math.abs(turn.bead.getX() - x) == 2 && Math.abs(turn.bead.getY() - y) == 2 && board[turn.bead.getY()][x] == opponent_cell && board[turn.bead.getY()][(turn.bead.getX() + x) / 2] == EMPTY && board[(turn.bead.getY() + y) / 2][x] == EMPTY);
 
     }
 

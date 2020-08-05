@@ -1,11 +1,13 @@
 package graphics;
 
 import game.Board;
+import game.Cup;
 import game.Player;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -44,7 +46,7 @@ public class Controller {
     @FXML protected ToggleButton bot1;
     @FXML protected ToggleButton bot2;
     @FXML protected Label status;
-
+    // go to game
     @FXML
     protected void gotoNewGame() throws IOException {
         if (player1name.getText().equals("") || player2name.getText().equals("")) {
@@ -65,16 +67,52 @@ public class Controller {
 //            player2name.setText(player2name.getText() + " (BOT)");
 //        }
 
-        board = new Board(new String[] {player1name.getText(), "U", "10"},
-                          new String[] {player2name.getText(), "D", "10"}, 1);
+        board = new Board(new Player(player1name.getText(), 'U', 10),
+                          new Player(player2name.getText(), 'D', 10), 1);
         gotoGame();
+        cup_is_on = false;
     }
     @FXML
     protected void gotoGame() throws IOException { play.gotoFXML("game.fxml"); initializeGame(); }
 
+    // tournament objects
+    @FXML protected Label names;
+    @FXML protected TextField number_of_bots;
+    private Cup tournament;
+
+    @FXML
+    protected void cup() {
+        ArrayList <Player> players = new ArrayList<>();
+        String[] names = this.names.getText().split("\n");
+        for (String name : names)
+            players.add(new Player(name, 'U', 10));
+//        int number_of_bots = Integer.parseInt(this.number_of_bots.getText());
+//        for (int i = 0; i < number_of_bots; i++) { todo: bots
+//            players.add(new AI());
+//        }
+        tournament = new Cup(players);
+        cup_is_on = true;
+        play();
+    }
+
+    private boolean play() {
+        if (tournament.levelFinished())
+            return false;
+        Player[] gamers = tournament.play();
+        try { gotoNewGame(gamers[0], gamers[1]);
+        } catch (IOException ioException) { ioException.printStackTrace(); }
+        return true;
+    }
+
+    protected void gotoNewGame(Player player1, Player player2) throws IOException {
+        board = new Board(player1, player2, 1);
+        gotoGame();
+    }
+
+    // game objects
     private Board board;
     public void setBoard(Board board) { this.board = board; }
-    // shall be changed game objects
+    // shall be changed objects
     @FXML protected Label player1info;
     @FXML protected Label player1walls;
     @FXML protected Label player2info;
@@ -82,6 +120,7 @@ public class Controller {
     @FXML protected AnchorPane table;
     @FXML protected AnchorPane bead1;
     @FXML protected AnchorPane bead2;
+    private boolean cup_is_on = false;
     // game methods
     protected void initializeGame() {
         // creating the board
@@ -307,8 +346,8 @@ public class Controller {
         AnchorPane cell = (AnchorPane) play.getScene().lookup(id);
         // click on the cell
         cell.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0,
-                                      0, 0, 0, MouseButton.PRIMARY, 1, true, true, true,
-                                      true, true, true, true, true, true, true, null));
+                0, 0, 0, MouseButton.PRIMARY, 1, true, true, true,
+                true, true, true, true, true, true, true, null));
     }
     @FXML // return to initial colors
     protected void baseColor(MouseEvent event) {
@@ -339,7 +378,7 @@ public class Controller {
                 id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
                 id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
                 if (board.getBoard()[y + 1][x] != 11)
-                play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
                 else
                     play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
 
@@ -356,16 +395,18 @@ public class Controller {
         if (winner == null) {
             return;
         }
-
+        int winner_number;
         Label winner_info;
         Label loser_info;
         if (winner.getId() == 'U') {
             winner_info = player1info;
             loser_info = player2info;
+            winner_number = 1;
         }
         else {
             winner_info = player2info;
             loser_info = player1info;
+            winner_number = 2;
         }
 
         winner_info.setFont(new Font("Segoe UI Semibold", 20));
@@ -382,6 +423,23 @@ public class Controller {
                 cell.setOnMouseEntered(null);
                 cell.setOnMouseExited(null);
             }
+
+        if (cup_is_on)
+            cupOptimizer(winner_number);
+    }
+
+    private void cupOptimizer(int winner_number) {
+        tournament.won(winner_number);
+        if (!play()) {
+            if (tournament.finished() == null)
+                tournament.nextLevel();
+            // todo
+//            else {
+//                showWinner();
+//                return;
+//            }
+            play();
+        }
     }
     @FXML
     protected void save() { FileManager.save(this.board); }

@@ -26,13 +26,13 @@
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Button>
-   <Line endX="-15.0" fill="BLACK" layoutX="249.0" layoutY="285.0" startX="-132.0" />
-   <Label layoutX="244.0" layoutY="274.0" prefHeight="16.0" prefWidth="32.0" text="OR" textAlignment="CENTER" textFill="#402e07">
-      <font>
-         <Font name="Bookman Old Style" size="20.0" />
-      </font>
-   </Label>
-   <Line endX="-15.0" fill="BLACK" layoutX="416.0" layoutY="286.0" startX="-132.0" />
-   <Line endX="117.0" endY="42.0" layoutX="119.0" layoutY="254.0" startX="117.0" startY="21.0" />
-   <Line endX="117.0" endY="42.0" layoutX="166.0" layoutY="255.0" startX="117.0" startY="21.0" />
+    <Line endX="-15.0" fill="BLACK" layoutX="249.0" layoutY="285.0" startX="-132.0" />
+    <Label layoutX="244.0" layoutY="274.0" prefHeight="16.0" prefWidth="32.0" text="OR" textAlignment="CENTER" textFill="#402e07">
+        <font>
+            <Font name="Bookman Old Style" size="20.0" />
+        </font>
+    </Label>
+    <Line endX="-15.0" fill="BLACK" layoutX="416.0" layoutY="286.0" startX="-132.0" />
+    <Line endX="117.0" endY="42.0" layoutX="119.0" layoutY="254.0" startX="117.0" startY="21.0" />
+    <Line endX="117.0" endY="42.0" layoutX="166.0" layoutY="255.0" startX="117.0" startY="21.0" />
 </AnchorPane>
