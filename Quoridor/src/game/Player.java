@@ -5,7 +5,7 @@
         String name;
         Bead bead;
         int walls;
-        boolean skip_level = false;
+        boolean skip_level;
         public char getId() { return this.id; }
         public String getName() { return this.name; }
         public Bead getBead() { return this.bead; }
@@ -24,6 +24,7 @@
         public Player(String name, char id, int walls) {
             this.name = name;
             this.walls = walls;
+            skip_level = false;
             setId(id);
         }
     }
