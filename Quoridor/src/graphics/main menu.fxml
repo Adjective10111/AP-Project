@@ -18,11 +18,11 @@
         </font>
     </Button>
     <!--todo: load game-->
-    <Button layoutX="201.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#gotoLoad" text="Load Game">
-        <font>
-            <Font name="Arial Rounded MT Bold" size="17.0" />
-        </font>
-    </Button>
+<!--    <Button layoutX="201.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#gotoLoad" text="Load Game">-->
+<!--        <font>-->
+<!--            <Font name="Arial Rounded MT Bold" size="17.0" />-->
+<!--        </font>-->
+<!--    </Button>-->
 
     <Button layoutX="201.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#Exit" prefWidth="119.0" text="Exit">
         <font>

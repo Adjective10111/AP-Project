@@ -4,12 +4,11 @@ import game.AI;
 import game.Board;
 import game.Cup;
 import game.Player;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -40,7 +39,13 @@ public class Controller {
     @FXML
     protected void gotoMenu() throws IOException { play.gotoFXML("main menu.fxml"); }
     @FXML
-    protected void gotoPlayerSettings() throws IOException { play.gotoFXML("player settings.fxml"); }
+    protected void gotoPlayerSettings() throws IOException {
+        play.gotoFXML("player settings.fxml");
+        bot1difficulty = (ChoiceBox<String>) play.getScene().lookup("#bot1difficulty");
+        bot2difficulty = (ChoiceBox<String>) play.getScene().lookup("#bot2difficulty");
+        bot1difficulty.setItems(FXCollections.observableArrayList(new String[] {"1", "2", "3"}));
+        bot2difficulty.setItems(FXCollections.observableArrayList(new String[] {"1", "2", "3"}));
+    }
     @FXML
     protected void gotoCup() throws IOException {
         play.gotoFXML("tournament menu.fxml");
@@ -70,6 +75,8 @@ public class Controller {
     @FXML protected TextField player2name;
     @FXML protected ToggleButton bot1;
     @FXML protected ToggleButton bot2;
+    @FXML protected ChoiceBox <String> bot1difficulty;
+    @FXML protected ChoiceBox <String> bot2difficulty;
     @FXML protected Label status;
     // go to game
     @FXML
@@ -85,13 +92,24 @@ public class Controller {
         Player player1, player2;
         if (bot1.isSelected()) {
             player1name.setText(player1name.getText() + " (BOT)");
-            player1 = new AI(player1name.getText(), 'U', 10);
+            int difficulty;
+            if (bot1difficulty.getValue().equals("1"))
+                difficulty = 1;
+            else
+                difficulty = 2;
+            player1 = new AI(player1name.getText(), 'U', 10, difficulty);
         }
         else
             player1 = new Player(player1name.getText(), 'U', 10);
+
         if (bot2.isSelected()) {
             player2name.setText(player2name.getText() + " (BOT)");
-            player2 = new AI(player2name.getText(), 'D', 10);
+            int difficulty;
+            if (bot2difficulty.getValue().equals("1"))
+                difficulty = 1;
+            else
+                difficulty = 2;
+            player2 = new AI(player2name.getText(), 'D', 10, difficulty);
         }
         else
             player2 = new Player(player2name.getText(), 'D', 10);

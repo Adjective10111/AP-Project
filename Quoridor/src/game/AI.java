@@ -13,9 +13,7 @@ public class AI extends Player{
     private int best_depth;
     private int difficulty;
 
-    public AI(String name, char id, int walls) {
-        super(name, id, walls);
-    }
+    public AI(String name, char id, int walls, int difficulty) { super(name, id, walls); this.difficulty = difficulty; }
 
     // This will return the best possible move for the player
     public int[] findBestMove(Board board)

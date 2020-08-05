@@ -34,4 +34,6 @@
             <Font name="Arial Rounded MT Bold" size="17.0" />
         </font>
     </Label>
+   <ChoiceBox fx:id="bot1difficulty" layoutX="456.0" layoutY="196.0" prefHeight="33.0" prefWidth="50.0" />
+   <ChoiceBox fx:id="bot2difficulty" layoutX="456.0" layoutY="236.0" prefHeight="33.0" prefWidth="50.0" />
 </AnchorPane>
