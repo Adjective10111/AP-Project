@@ -2,7 +2,7 @@ package game;
 import java.util.*;
 
 public class Cup {
-    private ArrayList<Player> players = new ArrayList<Player>();
+    private ArrayList<Player> players;
     private Integer skipper;
     private int turn = 0;
 
