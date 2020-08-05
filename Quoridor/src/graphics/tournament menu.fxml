@@ -11,7 +11,7 @@
         </font>
     </Button>
 
-    <Label fx:id="names" alignment="CENTER" layoutX="15.0" layoutY="56.0" prefHeight="271.0" prefWidth="490.0" wrapText="true" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="56.0">
+    <Label fx:id="names" alignment="CENTER" layoutX="15.0" layoutY="56.0" prefHeight="271.0" prefWidth="367.0" wrapText="true" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="56.0">
         <font>
             <Font name="Arial Rounded MT Bold" size="15.0" />
         </font>

@@ -5,6 +5,7 @@ import game.Board;
 import game.Cup;
 import game.Player;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -415,9 +416,9 @@ public class Controller {
     // do the winner stuff
     private void win() {
         Player winner = board.win();
-        if (winner == null) {
+        if (winner == null)
             return;
-        }
+
         int winner_number;
         Label winner_info;
         Label loser_info;
@@ -445,6 +446,75 @@ public class Controller {
                 cell.setOnMouseClicked(null);
                 cell.setOnMouseEntered(null);
                 cell.setOnMouseExited(null);
+                if (!cup_is_on) {
+                    if (i == 6) {
+                        if (j == 6) {
+                            cell.setStyle("-fx-background-color: mediumaquamarine");
+                            Label label = new Label("try");
+                            label.setTextFill(Color.BLACK);
+                            label.setFont(new Font("Arial Rounded MT Bold", 12));
+                            label.setAlignment(Pos.CENTER);
+                            label.setPrefSize(40, 40);
+                            cell.getChildren().add(label);
+                            if (bead1.getLayoutX() == cell.getLayoutX() && bead1.getLayoutY() == cell.getLayoutY())
+                                bead1.setVisible(false);
+                            if (bead2.getLayoutX() == cell.getLayoutX() && bead2.getLayoutY() == cell.getLayoutY())
+                                bead2.setVisible(false);
+                        }
+                        else if (j == 8) {
+                            cell.setStyle("-fx-background-color: mediumaquamarine");
+                            Label label = new Label("again?");
+                            label.setTextFill(Color.BLACK);
+                            label.setFont(new Font("Arial Rounded MT Bold", 12));
+                            label.setAlignment(Pos.CENTER);
+                            label.setPrefSize(40, 40);
+                            cell.getChildren().add(label);
+                            if (bead1.getLayoutX() == cell.getLayoutX() && bead1.getLayoutY() == cell.getLayoutY())
+                                bead1.setVisible(false);
+                            if (bead2.getLayoutX() == cell.getLayoutX() && bead2.getLayoutY() == cell.getLayoutY())
+                                bead2.setVisible(false);
+                        }
+                    }
+                    else if(i == 8) {
+                        if (j == 6) {
+                            cell.setStyle("-fx-background-color: limegreen");
+                            Label label = new Label("YES");
+                            label.setTextFill(Color.BLACK);
+                            label.setFont(new Font("Arial Rounded MT Bold", 12));
+                            label.setAlignment(Pos.CENTER);
+                            label.setPrefSize(40, 40);
+                            label.setOnMouseClicked(event -> {
+                                try {
+                                    gotoNewGame(new Player(board.getPlayer1().getName(), 'U', 10),
+                                                new Player(board.getPlayer2().getName(), 'D', 10));
+                                } catch (IOException ioException) { ioException.printStackTrace(); }
+                            });
+                            cell.getChildren().add(label);
+                            if (bead1.getLayoutX() == cell.getLayoutX() && bead1.getLayoutY() == cell.getLayoutY())
+                                bead1.setVisible(false);
+                            if (bead2.getLayoutX() == cell.getLayoutX() && bead2.getLayoutY() == cell.getLayoutY())
+                                bead2.setVisible(false);
+                        }
+                        else if (j == 8) {
+                            cell.setStyle("-fx-background-color: red");
+                            Label label = new Label("NO");
+                            label.setTextFill(Color.BLACK);
+                            label.setFont(new Font("Arial Rounded MT Bold", 12));
+                            label.setAlignment(Pos.CENTER);
+                            label.setPrefSize(40, 40);
+                            label.setOnMouseClicked(event -> {
+                                try { gotoGameModes(); } catch (IOException ioException) {
+                                    ioException.printStackTrace();
+                                }
+                            });
+                            cell.getChildren().add(label);
+                            if (bead1.getLayoutX() == cell.getLayoutX() && bead1.getLayoutY() == cell.getLayoutY())
+                                bead1.setVisible(false);
+                            if (bead2.getLayoutX() == cell.getLayoutX() && bead2.getLayoutY() == cell.getLayoutY())
+                                bead2.setVisible(false);
+                        }
+                    }
+                }
             }
 
         if (cup_is_on)
