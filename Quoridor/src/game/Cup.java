@@ -14,7 +14,7 @@ public class Cup {
         Collections.shuffle(players);
         if (players.size() % 2 != 0) {
             int i = 0;
-            while (players.get(i).skip_level)
+            while (players.get(i).isSkip_level())
                 ++i;
             players.get(i).skip_level = true;
             skipper = i;
@@ -28,12 +28,15 @@ public class Cup {
     public Player[] play() {
         Player[] gamers = new Player[2];
 
-        if (turn == skipper)
-            turn++;
+        if (skipper != null)
+            if (turn == skipper)
+                turn++;
         gamers[0] = players.get(turn++);
         gamers[0].setId('U');
-        if (turn == skipper)
-            turn++;
+
+        if (skipper != null)
+            if (turn == skipper)
+                turn++;
         gamers[1] = players.get(turn);
         gamers[1].setId('D');
 
@@ -42,8 +45,9 @@ public class Cup {
 
     public void won(int i) {
         if (i == 1) {
-            if (turn - i == skipper)
-                i++;
+            if (skipper != null)
+                if (turn - i == skipper)
+                    i++;
             players.remove(turn - i);
         }
         else if (i == 2)

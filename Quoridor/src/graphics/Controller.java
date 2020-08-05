@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -39,7 +40,25 @@ public class Controller {
     @FXML
     protected void gotoPlayerSettings() throws IOException { play.gotoFXML("player settings.fxml"); }
     @FXML
-    protected void gotoCup() throws IOException { play.gotoFXML("tournament menu.fxml"); }
+    protected void gotoCup() throws IOException {
+        play.gotoFXML("tournament menu.fxml");
+
+        name_input = (TextField)play.getScene().lookup("#name_input");
+        names = (Label)play.getScene().lookup("#names");
+        error = (Label)play.getScene().lookup("#error");
+
+        name_input.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                if (name_input.getText().equals(""))
+                    error.setText("name cannot be empty");
+                else {
+                    error.setText("");
+                    names.setText(((names.getText().equals("")) ? "" : names.getText() + "\n") + name_input.getText());
+                    name_input.setText("");
+                }
+            }
+        });
+    }
 
     // player settings
     @FXML protected TextField player1name;
@@ -81,7 +100,9 @@ public class Controller {
 
     // tournament objects
     @FXML protected Label names;
+    @FXML protected TextField name_input;
     @FXML protected TextField number_of_bots;
+    @FXML protected Label error;
     private Cup tournament;
 
     @FXML
