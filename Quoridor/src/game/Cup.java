@@ -14,7 +14,7 @@ public class Cup {
         Collections.shuffle(players);
         if (players.size() % 2 != 0) {
             int i = 0;
-            while (players.get(i).isSkip_level())
+            while (players.get(i).skip_level)
                 ++i;
             players.get(i).skip_level = true;
             skipper = i;
@@ -55,7 +55,7 @@ public class Cup {
         turn++;
     }
 
-    public boolean levelFinished() { return turn == players.size(); }
+    public boolean levelFinished() { return turn >= players.size() - 1; }
 
     public Player finished() { return (players.size() == 1) ? players.get(0) : null; }
 }
