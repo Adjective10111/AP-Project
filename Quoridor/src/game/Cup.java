@@ -31,13 +31,13 @@ public class Cup {
             else players.remove(index);
         }
     }
-    public void next_level(){
+    public void nextLevel(){
         Collections.shuffle(players);
         if (players.size() % 2 != 0)
               players.get(0).skip_level = true;
         index = -2;
     }
-    public boolean level_finished(){
+    public boolean levelFinished(){
         if (index >= players.size()){
              return true;
         }
