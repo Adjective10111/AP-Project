@@ -29,7 +29,7 @@ class BoardGraph {
             graph.addEdge("V" + "8" + j, "V" + "8" + (j + 1));
     }
 
-
+    //check if we remove edges is any path exist from bead to win side or not
     public boolean isPathExist(Player player, Graph<String, DefaultEdge> clonedGraph) {
         int row = player.getBead().getY() / 2;
         int column = player.getBead().getX() / 2;
@@ -47,6 +47,7 @@ class BoardGraph {
         return isPathExist(player1, clonedGraph) && isPathExist(player2, clonedGraph);
     }
 
+    //it get x and y to place wall and if can do it remove 2 edges which wall cut.
     public void removeEdgeByWall(int x, int y, Graph<String, DefaultEdge> graph) {
         int i, j;
         //remove edges when place horizontal wall
@@ -64,7 +65,7 @@ class BoardGraph {
             graph.removeEdge("V" + (i + 1) + j, "V" + (i + 1) + (j + 1));
         }
     }
-    
+
     public void undoRemoveEdges(int x, int y) {
         int i, j;
         //remove edges when place horizontal wall
@@ -83,6 +84,7 @@ class BoardGraph {
         }
     }
 
+    //check if can remove edge, it remove edge and return true.
     public boolean allowedRemoveEdge(Player player1, Player player2, int x, int y) {
         Graph<String, DefaultEdge> clonedGraph = new DefaultUndirectedGraph<>(DefaultEdge.class);
         Graphs.addGraph(clonedGraph, graph);
@@ -96,6 +98,7 @@ class BoardGraph {
         return false;
     }
 
+    //check if we can remove edge or not.
     public boolean canRemoveEdge(Player player1, Player player2, int x, int y) {
         Graph<String, DefaultEdge> clonedGraph = new DefaultUndirectedGraph<>(DefaultEdge.class);
         Graphs.addGraph(clonedGraph, graph);

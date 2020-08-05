@@ -13,6 +13,7 @@
         public boolean isSkip_level() { return this.skip_level; }
         public void setBead(int y, int x) { this.bead = new Bead(y, x); }
         public void decreaseWalls() { this.walls--; }
+        public void increaseWalls() { this.walls++; }
         public void setId(char id) {
             this.id = id;
             if (id == 'U')

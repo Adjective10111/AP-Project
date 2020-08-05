@@ -92,12 +92,14 @@ public class Board{
             board[y][x] = EMPTY;
             board[y + 1][x] = EMPTY;
             board[y + 2][x] = EMPTY;
+            turn.increaseWalls();
             wall.undoPlaceWall(x, y);
         }
         else if  (y % 2 == 1 && x % 2 == 0 && x <15 && y < 16) {
             board[y][x] = EMPTY;
             board[y][x + 1] = EMPTY;
             board[y][x + 2] = EMPTY;
+            turn.increaseWalls();
             wall.undoPlaceWall(x, y);
         }
     }
