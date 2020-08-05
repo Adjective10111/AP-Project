@@ -2,51 +2,55 @@ package game;
 import java.util.*;
 
 public class Cup {
-    private int playercount;
-    private int level = 1;
     private ArrayList<Player> players = new ArrayList<Player>();
-    private int index = -2;
-    public Cup(ArrayList players) {
+    private Integer skipper;
+    private int turn = 0;
 
+    public Cup(ArrayList<Player> players) {
+        this.players = players;
     }
-    public Player[] play(ArrayList<Player> players){
-        if (players.size() % 2 != 0){
-            index += 2;
-                return new Player[]{players.get(index + 1), players.get(index + 2)};
-            }
-        else{
-            index += 2;
-                return new Player[]{players.get(index), players.get(index + 1)};
-            }
-        }
-    public void won(int winnerNumber){
-        if (players.size() % 2 != 0) {
-            if (winnerNumber == 1)
-                players.remove(index + 2);
-            else players.remove(index + 1);
-        }
-        else {
-            if (winnerNumber == 1)
-                players.remove(index + 1);
-            else players.remove(index);
-        }
-    }
-    public void next_level(){
+
+    public void nextLevel() {
         Collections.shuffle(players);
-        if (players.size() % 2 != 0)
-              players.get(0).skip_level = true;
-        index = -2;
-    }
-    public boolean level_finished(){
-        if (index >= players.size()){
-             return true;
+        if (players.size() % 2 != 0) {
+            int i = 0;
+            for (i = 0; players.get(i).skip_level; ++i);
+            players.get(i).skip_level = true;
+            skipper = i;
         }
-        else return false;
-    }
-    public Player finished(){
-        if (players.size() == 1)
-            return players.get(0);
-        else return null;
+        else
+            skipper = null;
+
+        turn = 0;
     }
 
+    public Player[] play() {
+        Player[] gamers = new Player[2];
+
+        if (turn == skipper)
+            turn++;
+        gamers[0] = players.get(turn++);
+        gamers[0].setId('U');
+        if (turn == skipper)
+            turn++;
+        gamers[1] = players.get(turn);
+        gamers[1].setId('D');
+
+        return new Player[] {gamers[0], gamers[1]};
+    }
+
+    public void won(int i) {
+        if (i == 1) {
+            if (turn - i == skipper)
+                i++;
+            players.remove(turn - i);
+        }
+        else if (i == 2)
+            players.remove(turn);
+        turn++;
+    }
+
+    public boolean levelFinished() { return turn == players.size(); }
+
+    public Player finished() { return (players.size() == 1) ? players.get(0) : null; }
 }
