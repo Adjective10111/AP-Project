@@ -30,8 +30,6 @@ public class Board{
     public Player getTurn() { return turn; }
     public Player getPlayer1() { return player1; }
     public Player getPlayer2() { return player2; }
-    public void setPlayer1(Player player) { this.player1 = player; }
-    public void setPlayer2(Player player) { this.player2 = player; }
     public void setCell(int y, int x, int value) {
         board[y][x] = value;
         if (value == 1)
