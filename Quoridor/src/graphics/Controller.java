@@ -21,6 +21,7 @@ import load.FileManager;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.concurrent.TimeUnit;
 
@@ -49,9 +50,12 @@ public class Controller {
         error = (Label)play.getScene().lookup("#error");
 
         name_input.setOnKeyPressed(keyEvent -> {
+            ArrayList<String> names_array = new ArrayList<>(Arrays.asList(names.getText().split("\n")));
             if (keyEvent.getCode() == KeyCode.ENTER) {
                 if (name_input.getText().equals(""))
                     error.setText("name cannot be empty");
+                else if (names_array.contains(name_input.getText()))
+                    error.setText("name cannot be duplicate");
                 else {
                     error.setText("");
                     names.setText(((names.getText().equals("")) ? "" : names.getText() + "\n") + name_input.getText());
