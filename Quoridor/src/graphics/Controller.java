@@ -176,12 +176,12 @@ public class Controller {
                     if (i % 2 == 0)
                         cell.setStyle("-fx-background-color: slategrey");
                     else
-                        cell.setStyle("-fx-background-color: firebrick");
+                        cell.setStyle("-fx-background-color: rgb(150,80,58)");
                     cell.setPrefWidth(THICK);
                     x += THICK;
                 }
                 else {
-                    cell.setStyle("-fx-background-color: firebrick");
+                    cell.setStyle("-fx-background-color: rgb(150,80,58)");
                     cell.setPrefWidth(NARROW);
                     x += NARROW;
                 }
@@ -264,11 +264,11 @@ public class Controller {
         int x = index % 100, y = index / 100;
         if (board.canMove(x, y))
             if (board.getTurn().getId() == 'U')
-                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: darkgrey");
+                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: #5c5c5c");
             else
-                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: floralwhite");
+                ((AnchorPane) event.getSource()).setStyle("-fx-background-color: #bab5ab");
         else
-            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: red");
+            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: rgba(238,0,0,0.54)");
     }
     @FXML
     protected void canPlace(MouseEvent event) {
@@ -326,7 +326,7 @@ public class Controller {
         try {
             this.board.placeWall(x, y);
             // change the on-screen wall
-            wall_space.setStyle("-fx-background-color: khaki");
+            wall_space.setStyle("-fx-background-color: #b49a51");
             String id1 = "#cell";
             String id2 = "#cell";
             if (y % 2 == 1) {
@@ -339,8 +339,8 @@ public class Controller {
                 id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
                 id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
             }
-            play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
-            play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+            play.getScene().lookup(id1).setStyle("-fx-background-color: #b49a51");
+            play.getScene().lookup(id2).setStyle("-fx-background-color: #b49a51");
             // removing listeners
             {
                 wall_space.setOnMouseExited(null);
@@ -384,7 +384,7 @@ public class Controller {
         if (x % 2 == 0 && y % 2 == 0)
             ((AnchorPane) event.getSource()).setStyle("-fx-background-color: slategrey");
         else if (!((AnchorPane) event.getSource()).getStyle().equals("-fx-background-color: khaki")) {
-            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: firebrick");
+            ((AnchorPane) event.getSource()).setStyle("-fx-background-color: rgb(150,80,58)");
             String id1 = "#cell";
             String id2 = "#cell";
             if (y % 2 == 1) {
@@ -392,28 +392,28 @@ public class Controller {
                 id1 += y_value + ((x + 1 < 10) ? "0" + (x + 1) : x + 1);
                 id2 += y_value + ((x + 2 < 10) ? "0" + (x + 2) : x + 2);
                 if (board.getBoard()[y][x + 1] != 11)
-                    play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: rgb(150,80,58)");
                 else
-                    play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: #b49a51");
 
                 if (board.getBoard()[y][x + 2] != 11)
-                    play.getScene().lookup(id2).setStyle("-fx-background-color: firebrick");
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: rgb(150,80,58)");
                 else
-                    play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: #b49a51");
             }
             else {
                 String x_value = ((x < 10) ? "0" + x : x).toString();
                 id1 += ((y + 1 < 10) ? "0" + (y + 1) : y + 1) + x_value;
                 id2 += ((y + 2 < 10) ? "0" + (y + 2) : y + 2) + x_value;
                 if (board.getBoard()[y + 1][x] != 11)
-                    play.getScene().lookup(id1).setStyle("-fx-background-color: firebrick");
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: rgb(150,80,58)");
                 else
-                    play.getScene().lookup(id1).setStyle("-fx-background-color: khaki");
+                    play.getScene().lookup(id1).setStyle("-fx-background-color: #b49a51");
 
                 if (board.getBoard()[y + 2][x] != 11)
-                    play.getScene().lookup(id2).setStyle("-fx-background-color: firebrick");
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: rgb(150,80,58)");
                 else
-                    play.getScene().lookup(id2).setStyle("-fx-background-color: khaki");
+                    play.getScene().lookup(id2).setStyle("-fx-background-color: #b49a51");
             }
         }
     }

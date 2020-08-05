@@ -22,7 +22,7 @@
     </top>
 
     <center>
-        <AnchorPane minHeight="570.0" minWidth="520.0" style="-fx-background-color: #f2e2a6">
+        <AnchorPane minHeight="570.0" minWidth="520.0" style="-fx-background-color: rgba(30,30,66,0.8)">
             <Label fx:id="player1info" alignment="CENTER" prefHeight="45.0" prefWidth="270.0" text="Label" textAlignment="CENTER" AnchorPane.leftAnchor="40.0">
                 <font>
                     <Font name="Arial Rounded MT Bold" size="16.0" />

@@ -8,6 +8,8 @@ public class AI extends Player{
 
     private int min = -1000;
     private int max = 1000;
+    private int best_depth;
+    private int difficulty = 1;
 
     public AI(String name, char id, int walls) {
         super(name, id, walls);
@@ -16,54 +18,55 @@ public class AI extends Player{
     // This will return the best possible move for the player
     public int[] findBestMove(Board board)
     {
+        best_depth = max;
         int bestVal = min;
         int[] bestMove = new int[2];
         bestMove[0] = -1;
         bestMove[1] = -1;
-
-        // Check all cells and evaluate minimax function for all empty cells. And return the best move
-        for (int i = 0; i < 17; i++)
+        if (difficulty == 1)
         {
-            for (int j = 0; j < 17; j++)
-            {
-                int moveVal = min;
 
-                // Check if cell is empty
-                if (board.getBoard()[i][j] == EMPTY)
-                {
-                    if (i % 2 == 0 && j % 2 == 0)
-                    {
-                        try {
-                            board.move(j, i);
-                            board.turn();
-                            // compute evaluation function for this move.
-                            moveVal = minimax(board, 0, false, min, max);
-                            board.undoMove(j, i);
-                        } catch (InputMismatchException ignored) {}
-                    }
-                    else if ( (i % 2 == 0 && j % 2 == 1 && j <16 && i < 15) ||
-                            (i % 2 == 1 && j % 2 == 0 && j <15 && i < 16) )
-                    {
-                        try {
-                            board.placeWall(j, i);
-                            board.turn();
-                            // compute evaluation function for this move.
-                            moveVal = minimax(board, 0, false, min, max);
-                            board.undoMove(j, i);
-                        } catch (InputMismatchException ignored) {}
-                    }
+        }
+        if (difficulty == 4)
+        {
+            // Check all cells and evaluate minimax function for all empty cells. And return the best move
+            for (int i = 0; i < 17; i++) {
+                for (int j = 0; j < 17; j++) {
+                    int moveVal = min;
 
-                    // If the value of the current move is more than the best value, then update best
-                    if (moveVal > bestVal)
-                    {
-                        bestMove[0] = i;
-                        bestMove[1] = j;
-                        bestVal = moveVal;
+                    // Check if cell is empty
+                    if (board.getBoard()[i][j] == EMPTY) {
+                        if (i % 2 == 0 && j % 2 == 0) {
+                            try {
+                                board.move(j, i);
+                                board.turn();
+                                // compute evaluation function for this move.
+                                moveVal = minimax(board, 0, false, min, max);
+                                board.undoMove(j, i);
+                            } catch (InputMismatchException ignored) {
+                            }
+                        } else if ((i % 2 == 0 && j % 2 == 1 && j < 16 && i < 15) ||
+                                (i % 2 == 1 && j % 2 == 0 && j < 15 && i < 16)) {
+                            try {
+                                board.placeWall(j, i);
+                                board.turn();
+                                // compute evaluation function for this move.
+                                moveVal = minimax(board, 0, false, min, max);
+                                board.undoMove(j, i);
+                            } catch (InputMismatchException ignored) {
+                            }
+                        }
+
+                        // If the value of the current move is more than the best value, then update best
+                        if (moveVal > bestVal) {
+                            bestMove[0] = i;
+                            bestMove[1] = j;
+                            bestVal = moveVal;
+                        }
                     }
                 }
             }
         }
-
         return bestMove;
     }
 
@@ -76,6 +79,9 @@ public class AI extends Player{
             // If this maximizer's move
             if (isMax)
             {
+                if (depth + 1 == best_depth || depth + 1 > 20)
+                    return max;
+
                 int best = min;
 
                 // Traverse all cells
@@ -118,6 +124,9 @@ public class AI extends Player{
             // If this minimizer's move
             else
             {
+                if (depth + 1 == best_depth || depth + 1 > 20)
+                    return min;
+
                 int best = max;
 
                 // Traverse all cells
@@ -158,12 +167,18 @@ public class AI extends Player{
             }
         }
         // If Maximizer has won the game return his/her evaluated score
-        else if (score == 100)
+        else if (score == 100) {
+            if (depth < best_depth)
+                best_depth = depth;
             return score - depth;
+        }
 
         // If Minimizer has won the game return his/her evaluated score
-        else
+        else {
+            if (depth < best_depth)
+                best_depth = depth;
             return score + depth;
+        }
 
     }
 
@@ -182,4 +197,8 @@ public class AI extends Player{
             return -1000;
         }
     }
+
+    /*private int[] moveRandomly() {
+
+    }*/
 }
