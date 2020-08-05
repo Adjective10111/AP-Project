@@ -14,7 +14,8 @@ public class Cup {
         Collections.shuffle(players);
         if (players.size() % 2 != 0) {
             int i = 0;
-            for (i = 0; players.get(i).skip_level; ++i);
+            while (players.get(i).skip_level)
+                ++i;
             players.get(i).skip_level = true;
             skipper = i;
         }
