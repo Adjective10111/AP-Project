@@ -7,10 +7,9 @@ import org.jgrapht.graph.DefaultUndirectedGraph;
 import org.jgrapht.alg.connectivity.ConnectivityInspector;
 
 class BoardGraph {
-
     private Graph<String, DefaultEdge> graph = new DefaultUndirectedGraph<>(DefaultEdge.class);
 
-    public BoardGraph(){
+    public BoardGraph() {
         for (int i = 0; i < 9; ++i)
             for (int j = 0; j < 9; ++j) {
                 String name = "V" + i + j;
@@ -26,14 +25,12 @@ class BoardGraph {
         for (int i = 0; i < 8; ++i)
             graph.addEdge("V" + i + "8", "V" + (i + 1) + "8");
 
-
         for (int j = 0; j < 8; ++j)
             graph.addEdge("V" + "8" + j, "V" + "8" + (j + 1));
-
     }
 
-    public boolean isPathExist(Player player, Graph<String, DefaultEdge> clonedGraph) {
 
+    public boolean isPathExist(Player player, Graph<String, DefaultEdge> clonedGraph) {
         int row = player.getBead().getY() / 2;
         int column = player.getBead().getX() / 2;
         int targetRow = player.getId() == 'U' ? 8 : 0;
@@ -44,20 +41,14 @@ class BoardGraph {
                 return true;
 
         return false;
-
     }
 
     public boolean isPathExist(Player player1, Player player2, Graph<String, DefaultEdge> clonedGraph) {
-
-        if (isPathExist(player1, clonedGraph) && isPathExist(player2, clonedGraph))
-            return true;
-
-        return false;
+        return isPathExist(player1, clonedGraph) && isPathExist(player2, clonedGraph);
     }
 
     public void removeEdgeByWall(int x, int y, Graph<String, DefaultEdge> graph) {
         int i, j;
-
         //remove edges when place horizontal wall
         if (y % 2 == 1 && x % 2 == 0) {
             i = (y - 1) / 2;
@@ -72,11 +63,9 @@ class BoardGraph {
             graph.removeEdge("V" + i + j, "V" + i + (j + 1));
             graph.removeEdge("V" + (i + 1) + j, "V" + (i + 1) + (j + 1));
         }
-
     }
 
     public boolean allowedRemoveEdge(Player player1, Player player2, int x, int y) {
-
         Graph<String, DefaultEdge> clonedGraph = new DefaultUndirectedGraph<>(DefaultEdge.class);
         Graphs.addGraph(clonedGraph, graph);
 
@@ -87,19 +76,14 @@ class BoardGraph {
             return true;
         }
         return false;
-
     }
 
     public boolean canRemoveEdge(Player player1, Player player2, int x, int y) {
-
         Graph<String, DefaultEdge> clonedGraph = new DefaultUndirectedGraph<>(DefaultEdge.class);
         Graphs.addGraph(clonedGraph, graph);
 
         removeEdgeByWall(x, y, clonedGraph);
 
         return isPathExist(player1, player2, clonedGraph);
-
     }
-
 }
-
