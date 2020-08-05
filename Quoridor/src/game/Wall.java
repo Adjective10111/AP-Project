@@ -39,4 +39,8 @@ public class Wall {
 
         return false;
     }
+    
+    public void undoPlaceWall(int x, int y) {
+        boardGraph.undoRemoveEdges(x, y);
+    }
 }
