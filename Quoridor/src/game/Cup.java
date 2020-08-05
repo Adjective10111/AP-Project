@@ -27,6 +27,9 @@ public class Cup {
 
     public Player[] play() {
         Player[] gamers = new Player[2];
+        System.out.println(skipper);
+        if (skipper != null)
+            System.out.println(players.get(skipper).getName());
 
         if (skipper != null)
             if (turn == skipper)
@@ -45,13 +48,10 @@ public class Cup {
 
     public void won(int i) {
         if (i == 1) {
-            if (skipper != null)
-                if (turn - i == skipper)
-                    i++;
-            players.remove(turn - i);
+            players.remove(turn);
         }
         else if (i == 2)
-            players.remove(turn);
+            players.remove(turn - 1);
         turn++;
     }
 

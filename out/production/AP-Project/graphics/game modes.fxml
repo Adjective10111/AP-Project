@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="595.0" minWidth="520.0" style="-fx-background-color: #f2e2a6;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
+<AnchorPane minHeight="595.0" minWidth="520.0" style="-fx-background-color: rgba(30,30,66,0.8);" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
     <Label layoutX="133.0" layoutY="57.0" prefHeight="49.0" prefWidth="254.0" text="Game Modes" textAlignment="CENTER" textFill="#402e07" AnchorPane.topAnchor="57.0">
         <font>
             <Font name="Bookman Old Style" size="40.0" />

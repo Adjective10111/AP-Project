@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="595.0" minWidth="520.0" style="-fx-background-color: #f2e2a6;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
+<AnchorPane minHeight="595.0" minWidth="520.0" style="-fx-background-color: rgba(30,30,66,0.8);" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
     <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#gotoGameModes" text="Back" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
         <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />

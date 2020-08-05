@@ -128,6 +128,7 @@ public class Controller {
     private boolean play() {
         if (tournament.levelFinished())
             return false;
+        tournament.nextLevel();
         Player[] gamers = tournament.play();
         try { gotoNewGame(gamers[0], gamers[1]);
         } catch (IOException ioException) { ioException.printStackTrace(); }
