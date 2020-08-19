@@ -41,10 +41,10 @@ public class Controller {
     @FXML
     protected void gotoPlayerSettings() throws IOException {
         play.gotoFXML("player settings.fxml");
-        bot1difficulty = (ChoiceBox<String>) play.getScene().lookup("#bot1difficulty");
-        bot2difficulty = (ChoiceBox<String>) play.getScene().lookup("#bot2difficulty");
-        bot1difficulty.setItems(FXCollections.observableArrayList(new String[] {"1", "2", "3"}));
-        bot2difficulty.setItems(FXCollections.observableArrayList(new String[] {"1", "2", "3"}));
+//        bot1difficulty = (ChoiceBox<String>) play.getScene().lookup("#bot1difficulty");
+//        bot2difficulty = (ChoiceBox<String>) play.getScene().lookup("#bot2difficulty");
+//        bot1difficulty.setItems(FXCollections.observableArrayList(new String[] {"1", "2", "3"}));
+//        bot2difficulty.setItems(FXCollections.observableArrayList(new String[] {"1", "2", "3"}));
     }
     @FXML
     protected void gotoCup() throws IOException {
@@ -90,28 +90,28 @@ public class Controller {
             return;
         }
         Player player1, player2;
-        if (bot1.isSelected()) {
-            player1name.setText(player1name.getText() + " (BOT)");
-            int difficulty;
-            if (bot1difficulty.getValue().equals("1"))
-                difficulty = 1;
-            else
-                difficulty = 2;
-            player1 = new AI(player1name.getText(), 'U', 10, difficulty);
-        }
-        else
+//        if (bot1.isSelected()) {
+//            player1name.setText(player1name.getText() + " (BOT)");
+//            int difficulty;
+//            if (bot1difficulty.getValue().equals("1"))
+//                difficulty = 1;
+//            else
+//                difficulty = 2;
+//            player1 = new AI(player1name.getText(), 'U', 10, difficulty);
+//        }
+//        else
             player1 = new Player(player1name.getText(), 'U', 10);
 
-        if (bot2.isSelected()) {
-            player2name.setText(player2name.getText() + " (BOT)");
-            int difficulty;
-            if (bot2difficulty.getValue().equals("1"))
-                difficulty = 1;
-            else
-                difficulty = 2;
-            player2 = new AI(player2name.getText(), 'D', 10, difficulty);
-        }
-        else
+//        if (bot2.isSelected()) {
+//            player2name.setText(player2name.getText() + " (BOT)");
+//            int difficulty;
+//            if (bot2difficulty.getValue().equals("1"))
+//                difficulty = 1;
+//            else
+//                difficulty = 2;
+//            player2 = new AI(player2name.getText(), 'D', 10, difficulty);
+//        }
+//        else
             player2 = new Player(player2name.getText(), 'D', 10);
 
         board = new Board(player1, player2, 1);
@@ -549,11 +549,6 @@ public class Controller {
         if (!play()) {
             if (tournament.finished() == null)
                 tournament.nextLevel();
-            // todo
-//            else {
-//                showWinner();
-//                return;
-//            }
             play();
         }
     }
